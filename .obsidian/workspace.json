@@ -11,10 +11,14 @@
             "id": "92d1fa19a4f94a38",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "_poems/My First Poem.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "My First Poem"
             }
           }
         ]
@@ -144,13 +148,23 @@
               "icon": "lucide-list",
               "title": "Outline of Welcome"
             }
+          },
+          {
+            "id": "9a56828ee24f928c",
+            "type": "leaf",
+            "state": {
+              "type": "git-view",
+              "state": {},
+              "icon": "git-pull-request",
+              "title": "Source Control"
+            }
           }
-        ]
+        ],
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -163,7 +177,7 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "1ec845f686e05c48",
+  "active": "92d1fa19a4f94a38",
   "lastOpenFiles": [
     "_poems/My First Poem.md",
     "_poems/my-first-poem",
