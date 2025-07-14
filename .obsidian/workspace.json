@@ -22,8 +22,23 @@
               "icon": "lucide-file",
               "title": "Mārcis"
             }
+          },
+          {
+            "id": "fc3cf8a8c46afa4f",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "daiļrade/pabeigtie/dzeja/ceļojums cerībā.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "ceļojums cerībā"
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       },
       {
         "id": "dc13d6f74cf491de",
@@ -32,6 +47,7 @@
           {
             "id": "ab89df3b6aff441b",
             "type": "leaf",
+            "pinned": true,
             "state": {
               "type": "markdown",
               "state": {
@@ -39,11 +55,27 @@
                 "mode": "source",
                 "source": false
               },
+              "pinned": true,
               "icon": "lucide-file",
               "title": "būtība"
             }
+          },
+          {
+            "id": "608be68cb99e5835",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "_poems/Untitled.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Untitled"
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -200,11 +232,14 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "ab89df3b6aff441b",
+  "active": "1ec845f686e05c48",
   "lastOpenFiles": [
+    "_poems/Untitled.md",
+    "daiļrade/pabeigtie/dzeja/ceļojums cerībā.md",
     "_poems/Mārcis.md",
-    "daiļrade/pabeigtie/dzeja/būtība.md",
     "_poems/būtība.md",
+    "daiļrade/pabeigtie/dzeja/a poem about a radioactive duck.md",
+    "daiļrade/pabeigtie/dzeja/būtība.md",
     "2025-06-14.md",
     "daiļrade/pabeigtie/dzeja/bet es.md",
     "daiļrade/pabeigtie/dzeja/atmiņas.md",
@@ -213,7 +248,6 @@
     "_poems/a poem about a radioactive duck.md",
     "templates/default_template.md",
     "daiļrade/pabeigtie/dzeja/dvēsele.md",
-    "daiļrade/pabeigtie/dzeja/a poem about a radioactive duck.md",
     "daiļrade/pabeigtie/dzeja/Mārcis.md",
     "daiļrade/pabeigtie/dzeja/The Cigarette Triology/Part 1 - The Beggining of the End.md",
     "daiļrade/pabeigtie/dzeja/The Cigarette Triology/Part 2 - A life in Ashes.md",
@@ -227,8 +261,6 @@
     "daiļrade/pabeigtie/dzeja/vientuļais krēsls.md",
     "daiļrade/pabeigtie/dzeja/vasara.md",
     "daiļrade/pabeigtie/dzeja/The Cigarette Triology",
-    "daiļrade/pabeigtie/dzeja/tev, tava, tavs.md",
-    "daiļrade/pabeigtie/dzeja/prostitūta.md",
     "daiļrade/pabeigtie/stāsts",
     "daiļrade/pabeigtie/reps",
     "daiļrade/pabeigtie/haiku",
