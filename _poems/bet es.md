@@ -1,7 +1,7 @@
 ---
 title: bet es
 date: |-
-  Date started: Unknown
+  Date started: 2025-06-17
   Date finished: 2025-06-17
 ---
 esmu kā kukainis [zēns]
