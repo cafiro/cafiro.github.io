@@ -1,3 +1,7 @@
+---
+title: būtība
+date: 2025-06-07
+---
 rodas reiz jautājums  
 vai cilvēks ir tā rīcība  
 vai rīcība ir zaudējums  
@@ -42,5 +46,3 @@ un tas jautājums, kas sākās,
 paliek trūdam ar smagu krustu.  
 tu pats esi atbilde vāja,  
 kas bez skaņas brūk ar pūstu.
-
-/cafiro/ 07.06.25.
