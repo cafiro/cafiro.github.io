@@ -1,3 +1,7 @@
+---
+title: es
+date: 2024-09-14
+---
 tavā domu baseinā
 peldējos es
 maziņā trauciņā
@@ -42,6 +46,3 @@ bērnības draugs
 nebiju es
 tikai vien sapnis
 biju es
-
-/cafiro/
-14.09.24

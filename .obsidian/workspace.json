@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "_poems/Untitled.md",
+                "file": "_poems/ieraudzīju.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Untitled"
+              "title": "ieraudzīju"
             }
           }
         ]
@@ -33,12 +33,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "_poems/dzejolītis par ārkārtīgi labu laika pavadīšanu.md",
+                "file": "_poems/bet es.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "dzejolītis par ārkārtīgi labu laika pavadīšanu"
+              "title": "bet es"
             }
           }
         ]
@@ -132,12 +132,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "_poems/dzejolītis par ārkārtīgi labu laika pavadīšanu.md",
+                "file": "_poems/bet es.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from dzejolītis par ārkārtīgi labu laika pavadīšanu"
+              "title": "Outgoing links from bet es"
             }
           },
           {
@@ -161,13 +161,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "_poems/dzejolītis par ārkārtīgi labu laika pavadīšanu.md",
+                "file": "_poems/bet es.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of dzejolītis par ārkārtīgi labu laika pavadīšanu"
+              "title": "Outline of bet es"
             }
           },
           {
@@ -202,17 +202,22 @@
   },
   "active": "f4e49d0c8d6c9734",
   "lastOpenFiles": [
-    "_poems/Untitled.md",
-    "daiļrade/pabeigtie/dzeja/dzejolītis par ārkārtīgi labu laika pavadīšanu.md",
+    "_poems/atmiņas.md",
+    "_poems/a poem about a radioactive duck.md",
+    "daiļrade/pabeigtie/dzeja/impulss.md",
+    "daiļrade/pabeigtie/dzeja/dzīvības ūdens.md",
+    "daiļrade/pabeigtie/dzeja/ieraudzīju.md",
+    "_poems/ieraudzīju.md",
+    "_poems/es.md",
+    "daiļrade/pabeigtie/dzeja/es.md",
     "_poems/dzejolītis par ārkārtīgi labu laika pavadīšanu.md",
+    "daiļrade/pabeigtie/dzeja/dzejolītis par ārkārtīgi labu laika pavadīšanu.md",
     "_poems/dvēsele.md",
     "daiļrade/pabeigtie/dzeja/dvēsele.md",
     "_poems/bet es.md",
     "_poems/Mārcis.md",
     "_poems/ceļojums cerībā.md",
     "_poems/būtība.md",
-    "_poems/a poem about a radioactive duck.md",
-    "_poems/atmiņas.md",
     "daiļrade/pabeigtie/dzeja/dot, dot, dot.md",
     "daiļrade/pabeigtie/dzeja/ceļojums cerībā.md",
     "daiļrade/pabeigtie/dzeja/a poem about a radioactive duck.md",
@@ -223,11 +228,6 @@
     "templates/default_template.md",
     "daiļrade/pabeigtie/dzeja/Mārcis.md",
     "daiļrade/pabeigtie/dzeja/The Cigarette Triology/Part 1 - The Beggining of the End.md",
-    "daiļrade/pabeigtie/dzeja/The Cigarette Triology/Part 2 - A life in Ashes.md",
-    "daiļrade/pabeigtie/dzeja/The Cigarette Triology/Part 3 - Embers of Redemption.md",
-    "daiļrade/pabeigtie/stāsts/kādu dienu....md",
-    "daiļrade/pabeigtie/stāsts/efgānius.md",
-    "daiļrade/pabeigtie/reps/GTA V ПРЕДСТАВЛЯЕТ.md",
     "daiļrade/pabeigtie/dzeja/The Cigarette Triology",
     "daiļrade/pabeigtie/stāsts",
     "daiļrade/pabeigtie/reps",

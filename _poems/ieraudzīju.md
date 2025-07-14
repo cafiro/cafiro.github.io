@@ -1,3 +1,7 @@
+---
+title: ieraudzīju
+date: 2025-06-06
+---
 ieraudzīju kamieli,  
 lielu, brašu kamieli.  
 kamielis dodas tipu-tapu,  
@@ -37,6 +41,3 @@ ignorējis zirdziņu,
 garu, brašu zirdziņu,  
 zebriņš rikšo rik-rik,  
 uz mājas pusi tikt-tikt.
-
-/cafiro/  
-06.06.25.
