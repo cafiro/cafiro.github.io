@@ -1,3 +1,7 @@
+---
+title: dvēsele
+date: 2023-01-01
+---
 te skumst dvēsele mana,
 kā ziedlapiņa vējā.
 tā jūtas tik ļodzīgi,
@@ -20,7 +24,3 @@ pazūd, nu, dvēsele mana,
 paužot visus melus tā.
 tomēr šī mana mazā mele,
 vienmēr - vistuvākā.
-
-/cafiro/
-2022. gada beigas
-2023. gada sākums
