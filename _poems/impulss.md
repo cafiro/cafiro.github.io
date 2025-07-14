@@ -1,3 +1,7 @@
+---
+title: impulss
+date: 2024-03-20
+---
 es kā lietainais rudens vakars,
 nāku bargi ass,
 bet tā arī nesamircinu.
@@ -24,6 +28,3 @@ un uz sejas man guļ svešinieka roka.
 un uz pasaules naidu tā lemta.
 kā no koka slēpta,
 ir apslēpta šī sāpju rēta.
-
-/cafiro & antra/
-20.03.2024

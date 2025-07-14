@@ -1,3 +1,7 @@
+---
+title: nekā nav
+date: 2025-06-22
+---
 sit pulksten 6.30, enerģijas nekur nav.
 atver ledusskapi, bļeģ, piena nav.
 ej pēc smēķa, bet cigarešu nav.
@@ -19,6 +23,3 @@ bļeģ, bļeģ, nekā nav, nekā nekad nav.
 revolverī lodes nekad nav.
 bļeģ, dzīvot vēlmes nav.
 labāk, ja manis nekur nav.
-
-/cafiro/
-22.06.2024

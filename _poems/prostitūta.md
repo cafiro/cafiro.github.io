@@ -1,3 +1,7 @@
+---
+title: prostitūta
+date: 2025-06-19
+---
 dabas prostitūta spindz
 tās sasodītās bites
 nosarkst maigi pat puķe
@@ -42,5 +46,3 @@ es sēžu pie galda un ēdu
 un maksāju nodevas jums
 par dzeloni, vasaras tveici
 šis medus ir veltījums jums
-
-/cafiro/ 19.06.25
