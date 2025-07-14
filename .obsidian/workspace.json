@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "daiļrade/pabeigtie/dzeja/bet es.md",
+                "file": "_poems/a poem about a radioactive duck.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "bet es"
+              "title": "a poem about a radioactive duck"
             }
           }
         ]
@@ -181,11 +181,12 @@
   "active": "9bbf16fc2293bf05",
   "lastOpenFiles": [
     "_poems/bet es.md",
+    "_poems/atmiņas.md",
+    "templates/default_template.md",
     "daiļrade/pabeigtie/dzeja/bet es.md",
     "_poems/Untitled.md",
     "daiļrade/pabeigtie/dzeja/atmiņas.md",
     "daiļrade/pabeigtie/dzeja/būtība.md",
-    "_poems/atmiņas.md",
     "daiļrade/pabeigtie/dzeja/dvēsele.md",
     "_poems/a poem about a radioactive duck.md",
     "_poems/Mārcis.md",
@@ -206,7 +207,6 @@
     "daiļrade/pabeigtie/dzeja/tev, tava, tavs.md",
     "daiļrade/pabeigtie/dzeja/prostitūta.md",
     "daiļrade/pabeigtie/dzeja/reklāma.md",
-    "daiļrade/pabeigtie/dzeja/pasaka.md",
     "daiļrade/pabeigtie/stāsts",
     "daiļrade/pabeigtie/reps",
     "daiļrade/pabeigtie/haiku",

@@ -1,8 +1,6 @@
 ---
 title: atmiņas
-date: |-
-  Date started: Unknown
-  Date finished: 2024-09-24
+date: "Date finished: 2024-09-24"
 ---
 ieraugot akmeni atmiņas nāk,
 domas nelabas lidot sāk.
