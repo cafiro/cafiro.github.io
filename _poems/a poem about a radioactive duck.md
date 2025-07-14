@@ -1,7 +1,7 @@
 ---
 title: a poem about a radioactive duck
 date: |-
-  Date started: 2025-07-14
+  Date started: 2022-06
   Date finished: 2022-06
 ---
 there once was a duck,
