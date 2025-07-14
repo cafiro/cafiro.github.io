@@ -1,3 +1,7 @@
+---
+title: vasara
+date: 2024-06-22
+---
 tavu jūtu mudžeklī
 tauriņi ķērc
 saldais nekomforts
@@ -47,6 +51,3 @@ esmu tikai tavs
 viens pats
 vienmēr būsi tu
 mans skats
-
-/cafiro/
-22.06.2024

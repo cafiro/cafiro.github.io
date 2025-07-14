@@ -1,3 +1,7 @@
+---
+title: vientuļais krēsls
+date: 2024-07-16
+---
 tuksneša vidu,
 kalnu ēnā.
 kliedza krēsls,
@@ -32,6 +36,3 @@ vairs nav krēsla
 vairs nav miņa
 palikusi vien
 atmiņa
-
-/cafiro/
-16.07.2024

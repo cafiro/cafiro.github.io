@@ -1,3 +1,7 @@
+---
+title: pasaka
+date: 2024-09-11
+---
 pieneņu pasaka,
 skaista kā asara.
 dullā vasarā,
@@ -32,6 +36,3 @@ izsīkst pasaka,
 gaisā izgaistot.
 cik labi ir būt,
 dzīves pasakā.
-
-/cafiro/
-11.09.2024

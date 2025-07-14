@@ -13,32 +13,32 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "_poems/ieraudzīju.md",
+                "file": "_poems/reklāma.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "ieraudzīju"
+              "title": "reklāma"
             }
           }
         ]
       },
       {
-        "id": "035ff5c7a6affd54",
+        "id": "c678fd0687eaefc4",
         "type": "tabs",
         "children": [
           {
-            "id": "f4e49d0c8d6c9734",
+            "id": "8b63ac6da759e9f6",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "_poems/bet es.md",
+                "file": "daiļrade/pabeigtie/dzeja/dzīvības ūdens.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "bet es"
+              "title": "dzīvības ūdens"
             }
           }
         ]
@@ -132,12 +132,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "_poems/bet es.md",
+                "file": "daiļrade/pabeigtie/dzeja/dzīvības ūdens.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from bet es"
+              "title": "Outgoing links from dzīvības ūdens"
             }
           },
           {
@@ -161,13 +161,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "_poems/bet es.md",
+                "file": "daiļrade/pabeigtie/dzeja/dzīvības ūdens.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of bet es"
+              "title": "Outline of dzīvības ūdens"
             }
           },
           {
@@ -200,34 +200,34 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "f4e49d0c8d6c9734",
+  "active": "8b63ac6da759e9f6",
   "lastOpenFiles": [
-    "_poems/atmiņas.md",
-    "_poems/a poem about a radioactive duck.md",
-    "daiļrade/pabeigtie/dzeja/impulss.md",
+    "daiļrade/pabeigtie/haiku/laime.md",
     "daiļrade/pabeigtie/dzeja/dzīvības ūdens.md",
-    "daiļrade/pabeigtie/dzeja/ieraudzīju.md",
-    "_poems/ieraudzīju.md",
-    "_poems/es.md",
-    "daiļrade/pabeigtie/dzeja/es.md",
-    "_poems/dzejolītis par ārkārtīgi labu laika pavadīšanu.md",
-    "daiļrade/pabeigtie/dzeja/dzejolītis par ārkārtīgi labu laika pavadīšanu.md",
-    "_poems/dvēsele.md",
-    "daiļrade/pabeigtie/dzeja/dvēsele.md",
-    "_poems/bet es.md",
-    "_poems/Mārcis.md",
-    "_poems/ceļojums cerībā.md",
-    "_poems/būtība.md",
-    "daiļrade/pabeigtie/dzeja/dot, dot, dot.md",
-    "daiļrade/pabeigtie/dzeja/ceļojums cerībā.md",
-    "daiļrade/pabeigtie/dzeja/a poem about a radioactive duck.md",
-    "daiļrade/pabeigtie/dzeja/būtība.md",
-    "2025-06-14.md",
-    "daiļrade/pabeigtie/dzeja/bet es.md",
-    "daiļrade/pabeigtie/dzeja/atmiņas.md",
-    "templates/default_template.md",
-    "daiļrade/pabeigtie/dzeja/Mārcis.md",
-    "daiļrade/pabeigtie/dzeja/The Cigarette Triology/Part 1 - The Beggining of the End.md",
+    "daiļrade/pabeigtie/dzeja/prostitūta.md",
+    "daiļrade/pabeigtie/dzeja/l.i.f.e..md",
+    "daiļrade/pabeigtie/dzeja/nekā nav..md",
+    "daiļrade/pabeigtie/dzeja/reklāma.md",
+    "_poems/reklāma.md",
+    "_poems/tev, tava, tavs.md",
+    "daiļrade/pabeigtie/dzeja/tev, tava, tavs.md",
+    "_poems/vasara.md",
+    "daiļrade/pabeigtie/dzeja/vasara.md",
+    "_poems/vientuļais krēsls.md",
+    "daiļrade/pabeigtie/dzeja/vientuļais krēsls.md",
+    "_poems/vientuļais vientiesis.md",
+    "daiļrade/pabeigtie/dzeja/vientuļais vientiesis.md",
+    "_poems/pasaka.md",
+    "daiļrade/pabeigtie/dzeja/pasaka.md",
+    "_poems/nepareizi dzimušie.md",
+    "daiļrade/pabeigtie/dzeja/nepareizi dzimušie.md",
+    "_poems/no burbuļa līdz olai.md",
+    "daiļrade/pabeigtie/dzeja/no burbuļa līdz olai.md",
+    "_poems/kožlenes.md",
+    "daiļrade/pabeigtie/dzeja/kožlenes.md",
+    "_poems/jaunība.md",
+    "daiļrade/pabeigtie/dzeja/impulss.md",
+    "daiļrade/pabeigtie/dzeja/jaunība.md",
     "daiļrade/pabeigtie/dzeja/The Cigarette Triology",
     "daiļrade/pabeigtie/stāsts",
     "daiļrade/pabeigtie/reps",

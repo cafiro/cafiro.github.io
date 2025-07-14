@@ -1,3 +1,7 @@
+---
+title: nepareizi dzimušie
+date: 2025-06-07
+---
 kleptomāņi ārprātīgie,  
 lielveikali nolemtie.  
 siro zemi mantkārīgie –  
@@ -47,6 +51,3 @@ gariem pirkstiem, tukšām sirdīm,
 kas caur veikaliem iet klusi,  
 meklējot starp lietu mirdziem  
 savu pazudušo pusi.
-
-/cafiro/  
-07.06.25.

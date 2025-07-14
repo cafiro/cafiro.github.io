@@ -1,3 +1,7 @@
+---
+title: vientuļais vientiesis
+date: 2024-05-01
+---
 cilvēki, cilvēki,
 visa visuma zinātāji.
 ak, vientieši, 
@@ -35,6 +39,3 @@ lieciet vientiesi mierā,
 tam sāpju jau daudz,
 murgo tas par laikiem labiem,
 lieciet viņu lūdzu mierā.
-
-/cafiro/
-05.2024

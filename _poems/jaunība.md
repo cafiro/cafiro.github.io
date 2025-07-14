@@ -1,3 +1,7 @@
+---
+title: jaunība
+date: 2023-01-01
+---
 te aši pazūd jaunība,
 kā greboši kauli zārkā.
 pazūd tās modrība,
@@ -18,7 +22,3 @@ un žvāks...
 krīt līķis uz zemes bāls.
 gar malu paskrien balta pele,
 un, nu, gan nav skaists vizuāls.
-
-/cafiro/
-2022. gada beigas
-2023. gada sākums

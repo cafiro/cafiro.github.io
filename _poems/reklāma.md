@@ -1,3 +1,7 @@
+---
+title: reklāma
+date: 2024-05-15
+---
 reklāma, nospied, cik nav žēl,
 atmiņas pazūd man diemžēl.
 laužos ārā cik vien spēka,
@@ -27,6 +31,3 @@ skalai, kas tur dzirdi tavu,
 ak dievs, neatstāj savu.
 savu sirdi, kas ir rāma,
 mūc, bet visur reklāma.
-
-/cafiro/
-15.05.2024

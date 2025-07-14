@@ -1,3 +1,7 @@
+---
+title: kožlenes
+date: 2024-03-01
+---
 čigāniņs sēž un košļā kožļen',  
 skatās uz torņiem un paman' ļoteņ'  
   
@@ -45,6 +49,3 @@ kurš viņam kaut ko tādu nestu?
   
 ieliek, nu, viņš mutē kožļen'  
 atgāžas un sāk meklēt ļoten'
-
-/cafiro/
-03.2024
