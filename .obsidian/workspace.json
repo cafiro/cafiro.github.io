@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "007e7359a69fccac",
+        "id": "27e3478d97b73191",
         "type": "tabs",
         "children": [
           {
-            "id": "49cdd0e0b3316838",
+            "id": "d8422f615fac9196",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -173,8 +173,13 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "9a56828ee24f928c",
+  "active": "1ec845f686e05c48",
   "lastOpenFiles": [
+    "conflict-files-obsidian-git.md",
+    "templates/default_template.md",
+    "templates",
+    "_poems/a poem about a radioactive duck.md",
+    "_poems/Mārcis.md",
     "_poems/Untitled.md",
     "_poems/My First Poem.md",
     "_poems/my-first-poem",

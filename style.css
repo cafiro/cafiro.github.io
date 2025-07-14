@@ -5,13 +5,19 @@ body {
     background-color: #fdfdfd;
     margin: 0;
     padding: 0;
-    text-align: center;
+    /* We remove the global text-align: center; from here */
 }
 
 main {
     max-width: 700px;
     margin: 40px auto;
     padding: 20px;
+}
+
+/* Keep the header and footer centered */
+header,
+footer {
+    text-align: center;
 }
 
 header {
@@ -22,18 +28,75 @@ header {
 
 header h1 { margin: 0; font-size: 2.5em; font-weight: 700; }
 
-/* Archive Page Styles */
-.poem-list { list-style: none; padding: 0; }
+/* --- Archive Page Styles --- */
+/* Keep the list of poems centered */
+.poem-list {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
 .poem-list li { margin-bottom: 15px; font-size: 1.3em; }
 
-/* Poem Page Styles */
-.poem-container { padding-top: 20px; }
-.back-link { display: inline-block; margin-bottom: 40px; color: #0077cc; text-decoration: none; font-size: 0.9em; }
-.poem-title { font-size: 2.2em; font-weight: 400; margin-bottom: 40px; }
-.poem-body { font-size: 1.1em; line-height: 2; margin-bottom: 50px; white-space: pre-wrap; }
-.artist-name { font-style: italic; color: #555; margin-bottom: 5px; }
-.date-block { font-family: inherit; font-size: 0.9em; color: #777; margin: 0; white-space: pre-wrap; }
+/* --- Key Changes for the Poem Page --- */
 
-footer { text-align: center; padding: 20px; margin-top: 60px; font-size: 0.9em; color: #888; border-top: 1px solid #eee; }
+.poem-container {
+    padding-top: 20px;
+}
+
+.back-link {
+    display: block; /* Make it a block to align it left */
+    text-align: left;
+    margin-bottom: 40px;
+    color: #0077cc;
+    text-decoration: none;
+    font-size: 0.9em;
+}
+
+/* Make the title left-aligned and bold */
+.poem-title {
+    text-align: left;
+    font-size: 2.2em;
+    font-weight: 700; /* Was 400, now bold */
+    margin-bottom: 30px;
+}
+
+/* Make the poem body left-aligned and adjust line height */
+.poem-body {
+    text-align: left;
+    font-size: 1.1em;
+    line-height: 1.7; /* Slightly tighter for a classic feel */
+    margin-bottom: 50px;
+    white-space: pre-wrap;
+}
+
+/* Make the signature and date left-aligned */
+.artist-name,
+.date-block {
+    text-align: left;
+}
+
+.artist-name {
+    font-style: italic;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+.date-block {
+    font-family: inherit;
+    font-size: 0.9em;
+    color: #777;
+    margin: 0;
+    white-space: pre-wrap;
+}
+
+
+footer {
+    padding: 20px;
+    margin-top: 60px;
+    font-size: 0.9em;
+    color: #888;
+    border-top: 1px solid #eee;
+}
+
 a { color: #0077cc; text-decoration: none; }
 a:hover { text-decoration: underline; }
