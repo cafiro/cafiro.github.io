@@ -10,12 +10,21 @@ SITE_TITLE = "The Collective Archive of cafiro"
 AUTHOR_NAME = "cafiro"
 ARTIST_NAME = "/cafiro/"
 
+# --- NEW: Helper Function to Generate a Preview ---
+def generate_preview(html_content, word_limit=25):
+    # Strip HTML tags to get plain text
+    text = re.sub('<[^<]+?>', '', html_content).replace('\n', ' ').strip()
+    words = text.split()
+    if len(words) > word_limit:
+        return ' '.join(words[:word_limit]) + '...'
+    return ' '.join(words)
+
 # --- Helper Function to Extract a Sortable Date ---
 def get_sortable_date(date_string):
     match = re.search(r'\d{4}-\d{2}-\d{2}', str(date_string))
     return match.group(0) if match else '1970-01-01'
 
-# --- HTML Templates ---
+# --- HTML Templates (INDEX_TEMPLATE is updated) ---
 INDEX_TEMPLATE = """
 <!DOCTYPE html>
 <html lang="en">
@@ -31,16 +40,8 @@ INDEX_TEMPLATE = """
 <body>
     <header>
         <h1>{site_title}</h1>
-        <p>A collection of words, thoughts, and verses.</p>
     </header>
     <main>
-        <div class="controls">
-            <input type="text" id="searchInput" class="search-input" placeholder="Search poems by title...">
-            <select id="sortSelect" class="sort-select">
-                <option value="newest">Sort: Newest First</option>
-                <option value="oldest">Sort: Oldest First</option>
-            </select>
-        </div>
         <ul id="poemList" class="poem-list">
             {poem_links}
         </ul>
@@ -48,7 +49,6 @@ INDEX_TEMPLATE = """
     <footer>
         <p>© 2025 {author_name}</p>
     </footer>
-    <script src="script.js"></script>
 </body>
 </html>
 """
@@ -82,7 +82,7 @@ POEM_TEMPLATE = """
 </html>
 """
 
-# --- Build Script Logic (No changes to this part) ---
+# --- Build Script Logic (Updated) ---
 def build_site():
     print("Starting site build...")
     poems_data = []
@@ -104,6 +104,8 @@ def build_site():
                     metadata['content'] = poem_html
                     metadata['filename'] = filename.replace('.md', '.html')
                     metadata['sort_date'] = get_sortable_date(metadata.get('date', ''))
+                    # NEW: Generate and store the preview
+                    metadata['preview'] = generate_preview(poem_html)
                     poems_data.append(metadata)
 
     poems_data.sort(key=lambda p: p['sort_date'], reverse=True)
@@ -122,8 +124,15 @@ def build_site():
         print(f"  - Built page for: {poem.get('title', 'Untitled')}")
 
     poem_links_html = ""
+    # NEW: Loop to create the preview card structure
     for poem in poems_data:
-        poem_links_html += f'<li data-date="{poem["sort_date"]}"><a href="{poem["filename"]}"><span class="item-title">{poem["title"]}</span><span class="item-date">{poem["sort_date"]}</span></a></li>'
+        poem_links_html += f"""
+        <li class="poem-card">
+            <h2 class="index-poem-title"><a href="{poem['filename']}">{poem['title']}</a></h2>
+            <p class="poem-preview">{poem['preview']}</p>
+            <a href="{poem['filename']}" class="read-more">Read more →</a>
+        </li>
+        """
     
     index_content = INDEX_TEMPLATE.format(
         site_title=SITE_TITLE,
@@ -134,12 +143,10 @@ def build_site():
         f.write(index_content)
     print("  - Built index.html")
 
+    # We no longer copy script.js
     if os.path.exists('style.css'):
         os.system(f'cp style.css {OUTPUT_DIR}/style.css')
         print("  - Copied style.css")
-    if os.path.exists('script.js'):
-        os.system(f'cp script.js {OUTPUT_DIR}/script.js')
-        print("  - Copied script.js")
 
     print("Site build complete!")
 

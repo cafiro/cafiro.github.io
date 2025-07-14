@@ -1,107 +1,76 @@
 /* --- Global Styles & Fonts (Allpoetry Inspired) --- */
 body {
-    font-family: 'Lora', serif; /* Default serif for reading */
+    font-family: 'Lora', serif;
     line-height: 1.7;
-    color: #333333; /* Dark charcoal, not pure black */
-    background-color: #fbfaf8; /* Soft, off-white parchment */
+    color: #333333;
+    background-color: #fbfaf8;
     margin: 0;
     padding: 0;
 }
-
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Inter', sans-serif; /* Clean sans-serif for headings */
+    font-family: 'Inter', sans-serif;
 }
-
 main {
     max-width: 800px;
     margin: 40px auto;
     padding: 0 20px;
 }
-
-a { color: #0056b3; text-decoration: none; transition: color 0.2s; }
-a:hover { color: #003d80; text-decoration: none; }
+a { color: #8B4513; /* A warm, brownish color like in the example */ text-decoration: none; transition: color 0.2s; }
+a:hover { color: #5a2d0c; }
 
 /* --- Header & Footer --- */
 header {
     text-align: center;
     padding: 30px 20px 20px;
-    border-bottom: 1px solid #e5e3e0;
     margin-bottom: 50px;
 }
 header h1 { margin: 0; font-size: 2.8em; font-weight: 700; color: #1a1a1a; letter-spacing: 0.5px; }
-header p { margin: 10px 0 0; color: #666; font-style: italic; font-size: 1.1rem; }
-
 footer { text-align: center; padding: 20px; margin-top: 60px; font-size: 0.9em; color: #888; border-top: 1px solid #e5e3e0; }
 
-/* --- Archive Page Controls (Search & Sort) --- */
-.controls {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 30px;
-    gap: 15px;
-}
-.search-input, .sort-select {
-    padding: 12px 15px;
-    border: 1px solid #dcdad7;
-    border-radius: 6px;
-    background-color: #fff;
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    color: #333;
-    transition: border-color 0.2s, box-shadow 0.2s;
-}
-.search-input { flex-grow: 1; }
-.search-input:focus, .sort-select:focus {
-    outline: none;
-    border-color: #0056b3;
-    box-shadow: 0 0 8px rgba(0, 86, 179, 0.15);
-}
-
-/* --- Archive Poem List (The "Cards") --- */
+/* --- Archive Page - Poem Preview Cards --- */
 .poem-list {
     list-style: none;
     padding: 0;
 }
-.poem-list li {
+.poem-card {
     background-color: #fff;
-    margin-bottom: 12px;
+    padding: 30px 35px;
+    margin-bottom: 25px;
     border: 1px solid #e5e3e0;
-    border-radius: 6px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
-    transition: transform 0.2s, box-shadow 0.2s;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.02);
 }
-.poem-list li:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+.index-poem-title {
+    margin: 0 0 15px 0;
+    font-size: 1.8em;
+    font-weight: 700;
 }
-.poem-list li a {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 25px;
+.index-poem-title a {
+    color: #1a1a1a;
     text-decoration: none;
-    color: #333;
 }
-.item-title {
+.index-poem-title a:hover {
+    color: #000;
+}
+.poem-preview {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #444;
+    margin: 0 0 20px 0;
+}
+.read-more {
     font-family: 'Inter', sans-serif;
     font-weight: 700;
-    font-size: 1.2rem;
-    color: #1a1a1a;
+    font-size: 1rem;
+    color: #8B4513; /* Brownish color */
 }
-.item-date {
-    font-family: 'Inter', sans-serif;
-    font-size: 0.9rem;
-    color: #555;
-    background-color: #f4f2f0;
-    padding: 4px 10px;
-    border-radius: 4px;
-    white-space: nowrap;
+.read-more:hover {
+    color: #5a2d0c;
 }
 
-/* --- Individual Poem Page Styles --- */
+/* --- Individual Poem Page Styles (Unchanged) --- */
 .poem-container { padding: 20px 0; }
-.back-link { display: inline-block; margin-bottom: 50px; font-family: 'Inter', sans-serif; font-size: 1rem; }
+.back-link { display: inline-block; margin-bottom: 50px; font-family: 'Inter', sans-serif; font-size: 1rem; color: #8B4513; }
 .poem-title { text-align: left; font-size: 2.6em; font-weight: 700; margin-bottom: 40px; color: #1a1a1a; }
 .poem-body { text-align: left; font-size: 1.2rem; line-height: 1.8; margin-bottom: 60px; white-space: pre-wrap; }
 .artist-name, .date-block { text-align: left; }
