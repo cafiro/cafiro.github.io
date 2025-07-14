@@ -5,7 +5,7 @@ import yaml
 # --- Configuration ---
 POEMS_DIR = '_poems'
 OUTPUT_DIR = 'public'
-SITE_TITLE = "The Poetry of cafiro"
+SITE_TITLE = "The Collective Archive of cafiro"
 AUTHOR_NAME = "cafiro"
 ARTIST_NAME = "/cafiro/"
 
@@ -33,7 +33,7 @@ INDEX_TEMPLATE = """
         </ul>
     </main>
     <footer>
-        <p>© 2024 {author_name}</p>
+        <p>© 2025 {author_name}</p>
     </footer>
 </body>
 </html>
@@ -62,7 +62,7 @@ POEM_TEMPLATE = """
         <pre class="date-block">{date}</pre>
     </main>
     <footer>
-        <p>© 2024 {author_name}</p>
+        <p>© 2025 {author_name}</p>
     </footer>
 </body>
 </html>
