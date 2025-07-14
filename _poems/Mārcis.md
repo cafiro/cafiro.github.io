@@ -1,8 +1,6 @@
 ---
 title: Mārcis
-date: |-
-  Date started: Nezināms
-  Date finished: 2020-01-01
+date: 2020-01-01
 ---
 Reiz dzīvoja garais Mārcis,
 kuram ļoti patika cālis.

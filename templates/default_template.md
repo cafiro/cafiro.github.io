@@ -1,4 +1,4 @@
 ---
 title: 
-date: "Date finished:"
+date:
 ---
