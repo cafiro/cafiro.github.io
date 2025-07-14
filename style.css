@@ -15,7 +15,7 @@ main {
     margin: 40px auto;
     padding: 0 20px;
 }
-a { color: #8B4513; /* A warm, brownish color like in the example */ text-decoration: none; transition: color 0.2s; }
+a { color: #8B4513; text-decoration: none; transition: color 0.2s; }
 a:hover { color: #5a2d0c; }
 
 /* --- Header & Footer --- */
@@ -34,14 +34,15 @@ footer { text-align: center; padding: 20px; margin-top: 60px; font-size: 0.9em; 
 }
 .poem-card {
     background-color: #fff;
-    padding: 30px 35px;
+    /* UPDATED: Increased padding for more margin space */
+    padding: 40px 45px;
     margin-bottom: 25px;
     border: 1px solid #e5e3e0;
     border-radius: 8px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.02);
 }
 .index-poem-title {
-    margin: 0 0 15px 0;
+    margin: 0 0 20px 0; /* Increased bottom margin */
     font-size: 1.8em;
     font-weight: 700;
 }
@@ -56,13 +57,13 @@ footer { text-align: center; padding: 20px; margin-top: 60px; font-size: 0.9em; 
     font-size: 1.1rem;
     line-height: 1.8;
     color: #444;
-    margin: 0 0 20px 0;
+    margin: 0 0 25px 0; /* Increased bottom margin */
 }
 .read-more {
     font-family: 'Inter', sans-serif;
     font-weight: 700;
     font-size: 1rem;
-    color: #8B4513; /* Brownish color */
+    color: #8B4513;
 }
 .read-more:hover {
     color: #5a2d0c;
