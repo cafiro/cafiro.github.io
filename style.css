@@ -1,37 +1,37 @@
-/* --- Global Styles & Fonts --- */
+/* --- Global Styles & Fonts (Allpoetry Inspired) --- */
 body {
-    font-family: 'Lora', serif;
+    font-family: 'Lora', serif; /* Default serif for reading */
     line-height: 1.7;
-    color: #333;
-    background-color: #f9f9f9;
+    color: #333333; /* Dark charcoal, not pure black */
+    background-color: #fbfaf8; /* Soft, off-white parchment */
     margin: 0;
     padding: 0;
 }
 
-h1, h2, h3 {
-    font-family: 'Inter', sans-serif;
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inter', sans-serif; /* Clean sans-serif for headings */
 }
 
 main {
-    max-width: 750px;
+    max-width: 800px;
     margin: 40px auto;
-    padding: 20px;
+    padding: 0 20px;
 }
 
-a { color: #0056b3; text-decoration: none; }
-a:hover { text-decoration: underline; }
+a { color: #0056b3; text-decoration: none; transition: color 0.2s; }
+a:hover { color: #003d80; text-decoration: none; }
 
 /* --- Header & Footer --- */
 header {
     text-align: center;
-    padding: 40px 20px 20px;
-    border-bottom: 1px solid #e0e0e0;
-    margin-bottom: 40px;
+    padding: 30px 20px 20px;
+    border-bottom: 1px solid #e5e3e0;
+    margin-bottom: 50px;
 }
-header h1 { margin: 0; font-size: 2.5em; font-weight: 700; color: #1a1a1a; }
-header p { margin: 5px 0 0; color: #666; font-style: italic; }
+header h1 { margin: 0; font-size: 2.8em; font-weight: 700; color: #1a1a1a; letter-spacing: 0.5px; }
+header p { margin: 10px 0 0; color: #666; font-style: italic; font-size: 1.1rem; }
 
-footer { text-align: center; padding: 20px; margin-top: 60px; font-size: 0.9em; color: #888; border-top: 1px solid #e0e0e0; }
+footer { text-align: center; padding: 20px; margin-top: 60px; font-size: 0.9em; color: #888; border-top: 1px solid #e5e3e0; }
 
 /* --- Archive Page Controls (Search & Sort) --- */
 .controls {
@@ -42,63 +42,68 @@ footer { text-align: center; padding: 20px; margin-top: 60px; font-size: 0.9em; 
     gap: 15px;
 }
 .search-input, .sort-select {
-    padding: 10px 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    padding: 12px 15px;
+    border: 1px solid #dcdad7;
+    border-radius: 6px;
+    background-color: #fff;
     font-family: 'Inter', sans-serif;
     font-size: 1rem;
+    color: #333;
     transition: border-color 0.2s, box-shadow 0.2s;
 }
 .search-input { flex-grow: 1; }
 .search-input:focus, .sort-select:focus {
     outline: none;
     border-color: #0056b3;
-    box-shadow: 0 0 5px rgba(0, 86, 179, 0.2);
+    box-shadow: 0 0 8px rgba(0, 86, 179, 0.15);
 }
 
-/* --- Archive Poem List --- */
+/* --- Archive Poem List (The "Cards") --- */
 .poem-list {
     list-style: none;
     padding: 0;
 }
 .poem-list li {
     background-color: #fff;
-    margin-bottom: 10px;
-    border: 1px solid #e0e0e0;
-    border-radius: 5px;
+    margin-bottom: 12px;
+    border: 1px solid #e5e3e0;
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
     transition: transform 0.2s, box-shadow 0.2s;
 }
 .poem-list li:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
 }
 .poem-list li a {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 20px;
+    padding: 20px 25px;
     text-decoration: none;
     color: #333;
 }
 .item-title {
     font-family: 'Inter', sans-serif;
     font-weight: 700;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
+    color: #1a1a1a;
 }
 .item-date {
     font-family: 'Inter', sans-serif;
     font-size: 0.9rem;
-    color: #777;
-    background-color: #f0f0f0;
-    padding: 3px 8px;
-    border-radius: 3px;
+    color: #555;
+    background-color: #f4f2f0;
+    padding: 4px 10px;
+    border-radius: 4px;
+    white-space: nowrap;
 }
 
 /* --- Individual Poem Page Styles --- */
-.poem-container { padding-top: 20px; }
-.back-link { display: inline-block; margin-bottom: 40px; font-family: 'Inter', sans-serif; font-size: 0.9em; }
-.poem-title { text-align: left; font-size: 2.2em; font-weight: 700; margin-bottom: 30px; }
-.poem-body { text-align: left; font-size: 1.1em; line-height: 1.8; margin-bottom: 50px; white-space: pre-wrap; }
+.poem-container { padding: 20px 0; }
+.back-link { display: inline-block; margin-bottom: 50px; font-family: 'Inter', sans-serif; font-size: 1rem; }
+.poem-title { text-align: left; font-size: 2.6em; font-weight: 700; margin-bottom: 40px; color: #1a1a1a; }
+.poem-body { text-align: left; font-size: 1.2rem; line-height: 1.8; margin-bottom: 60px; white-space: pre-wrap; }
 .artist-name, .date-block { text-align: left; }
-.artist-name { font-style: italic; color: #555; margin-bottom: 5px; }
-.date-block { font-family: inherit; font-size: 0.9em; color: #777; margin: 0; white-space: pre-wrap; }
+.artist-name { font-style: italic; color: #555; margin-bottom: 5px; font-size: 1.1rem; }
+.date-block { font-family: 'Lora', serif; font-size: 1rem; color: #666; margin: 0; white-space: pre-wrap; }

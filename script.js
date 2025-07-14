@@ -9,8 +9,12 @@ document.addEventListener('DOMContentLoaded', function() {
         const searchTerm = searchInput.value.toLowerCase();
         poems.forEach(poem => {
             const title = poem.querySelector('.item-title').textContent.toLowerCase();
-            const isVisible = title.includes(searchTerm);
-            poem.style.display = isVisible ? 'block' : 'none';
+            // Use a class to hide/show instead of inline styles for better management
+            if (title.includes(searchTerm)) {
+                poem.style.display = 'block';
+            } else {
+                poem.style.display = 'none';
+            }
         });
 
         // --- Sorting ---
@@ -34,6 +38,6 @@ document.addEventListener('DOMContentLoaded', function() {
     searchInput.addEventListener('input', filterAndSort);
     sortSelect.addEventListener('change', filterAndSort);
 
-    // Initial sort on page load
+    // Initial sort on page load to apply the "Newest First" default
     filterAndSort();
 });
