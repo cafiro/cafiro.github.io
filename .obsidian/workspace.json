@@ -132,11 +132,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "_poems/dzejolītis par ārkārtīgi labu laika pavadīšanu.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links"
+              "title": "Outgoing links from dzejolītis par ārkārtīgi labu laika pavadīšanu"
             }
           },
           {
@@ -160,13 +161,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Welcome.md",
+                "file": "_poems/dzejolītis par ārkārtīgi labu laika pavadīšanu.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Welcome"
+              "title": "Outline of dzejolītis par ārkārtīgi labu laika pavadīšanu"
             }
           },
           {
@@ -184,7 +185,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 200,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
