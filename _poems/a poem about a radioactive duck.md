@@ -1,8 +1,8 @@
 ---
 title: a poem about a radioactive duck
 date: |-
-  Date started: 2022-06
-  Date finished: 2022-06
+  Date started: 2022-06-17
+  Date finished: 2022-06-17
 ---
 there once was a duck,
 whose nickname was sneaky snuck.
