@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "8f631ce87ffa6aba",
+        "id": "0db20d01cea58415",
         "type": "tabs",
         "children": [
           {
-            "id": "3f38c206a2e5ff2b",
+            "id": "9bbf16fc2293bf05",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -24,17 +24,21 @@
         ]
       },
       {
-        "id": "7a761fc81257bbfb",
+        "id": "1d1f7aa32c7af956",
         "type": "tabs",
         "children": [
           {
-            "id": "355bb045364f3674",
+            "id": "4d2f85f6fbf300e9",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "daiļrade/pabeigtie/dzeja/bet es.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "bet es"
             }
           }
         ]
@@ -194,13 +198,14 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "3f38c206a2e5ff2b",
+  "active": "4d2f85f6fbf300e9",
   "lastOpenFiles": [
-    "daiļrade/pabeigtie/dzeja/bet es.md",
     "_poems/bet es.md",
-    "_poems/atmiņas.md",
-    "daiļrade/pabeigtie/dzeja/atmiņas.md",
     "daiļrade/pabeigtie/dzeja/a poem about a radioactive duck.md",
+    "_poems/Untitled.md",
+    "daiļrade/pabeigtie/dzeja/atmiņas.md",
+    "daiļrade/pabeigtie/dzeja/bet es.md",
+    "_poems/atmiņas.md",
     "daiļrade/pabeigtie/dzeja/Mārcis.md",
     "_poems/a poem about a radioactive duck.md",
     "daiļrade/pabeigtie/dzeja/The Cigarette Triology/Part 1 - The Beggining of the End.md",
@@ -222,7 +227,6 @@
     "daiļrade/pabeigtie/dzeja/no burbuļa līdz olai.md",
     "daiļrade/pabeigtie/dzeja/nepareizi dzimušie.md",
     "daiļrade/pabeigtie/dzeja/nekā nav..md",
-    "daiļrade/pabeigtie/dzeja/l.i.f.e..md",
     "daiļrade/pabeigtie/stāsts",
     "daiļrade/pabeigtie/reps",
     "daiļrade/pabeigtie/haiku",
