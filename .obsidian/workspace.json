@@ -31,14 +31,10 @@
             "id": "355bb045364f3674",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "daiļrade/pabeigtie/dzeja/bet es.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "bet es"
+              "title": "New tab"
             }
           }
         ]
