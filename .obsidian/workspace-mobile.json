@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "conflict-files-obsidian-git.md",
+                "file": "_poems/a poem about a radioactive duck.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "conflict-files-obsidian-git"
+              "title": "a poem about a radioactive duck"
             }
           }
         ],
@@ -172,11 +172,11 @@
   },
   "active": "0ab5ab86e1d6a949",
   "lastOpenFiles": [
+    "_poems/a poem about a radioactive duck.md",
     "_poems/Mārcis.md",
     "conflict-files-obsidian-git.md",
     "templates/default_template.md",
     "Untitled.md",
-    "_poems/Untitled.md",
     "templates"
   ]
 }
