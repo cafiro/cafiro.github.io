@@ -10,21 +10,32 @@ SITE_TITLE = "The Collective Archive of cafiro"
 AUTHOR_NAME = "cafiro"
 ARTIST_NAME = "/cafiro/"
 
-# --- NEW: Helper Function to Generate a Preview ---
-def generate_preview(html_content, word_limit=25):
-    # Strip HTML tags to get plain text
-    text = re.sub('<[^<]+?>', '', html_content).replace('\n', ' ').strip()
-    words = text.split()
-    if len(words) > word_limit:
-        return ' '.join(words[:word_limit]) + '...'
-    return ' '.join(words)
+# --- UPDATED: Helper Function to Generate a Preview ---
+def generate_preview(html_content, line_limit=8):
+    """
+    Generates a preview of up to `line_limit` lines, preserving <br> tags.
+    """
+    # Split the HTML content by <br> tags (handles <br> and <br />)
+    lines = re.split(r'\\s*<br\\s*/?>\\s*', html_content.strip())
+    
+    # Get the first `line_limit` lines
+    preview_lines = lines[:line_limit]
+    
+    # Join them back together with proper HTML line breaks
+    preview_html = '<br>'.join(preview_lines)
+
+    # Add an ellipsis if the poem was truncated
+    if len(lines) > line_limit:
+        preview_html += '...'
+        
+    return preview_html
 
 # --- Helper Function to Extract a Sortable Date ---
 def get_sortable_date(date_string):
-    match = re.search(r'\d{4}-\d{2}-\d{2}', str(date_string))
+    match = re.search(r'\\d{4}-\\d{2}-\\d{2}', str(date_string))
     return match.group(0) if match else '1970-01-01'
 
-# --- HTML Templates (INDEX_TEMPLATE is updated) ---
+# --- HTML Templates (Unchanged) ---
 INDEX_TEMPLATE = """
 <!DOCTYPE html>
 <html lang="en">
@@ -82,7 +93,7 @@ POEM_TEMPLATE = """
 </html>
 """
 
-# --- Build Script Logic (Updated) ---
+# --- Build Script Logic (Unchanged) ---
 def build_site():
     print("Starting site build...")
     poems_data = []
@@ -104,7 +115,6 @@ def build_site():
                     metadata['content'] = poem_html
                     metadata['filename'] = filename.replace('.md', '.html')
                     metadata['sort_date'] = get_sortable_date(metadata.get('date', ''))
-                    # NEW: Generate and store the preview
                     metadata['preview'] = generate_preview(poem_html)
                     poems_data.append(metadata)
 
@@ -124,12 +134,11 @@ def build_site():
         print(f"  - Built page for: {poem.get('title', 'Untitled')}")
 
     poem_links_html = ""
-    # NEW: Loop to create the preview card structure
     for poem in poems_data:
         poem_links_html += f"""
         <li class="poem-card">
             <h2 class="index-poem-title"><a href="{poem['filename']}">{poem['title']}</a></h2>
-            <p class="poem-preview">{poem['preview']}</p>
+            <div class="poem-preview">{poem['preview']}</div>
             <a href="{poem['filename']}" class="read-more">Read more →</a>
         </li>
         """
@@ -143,7 +152,6 @@ def build_site():
         f.write(index_content)
     print("  - Built index.html")
 
-    # We no longer copy script.js
     if os.path.exists('style.css'):
         os.system(f'cp style.css {OUTPUT_DIR}/style.css')
         print("  - Copied style.css")
