@@ -1,3 +1,7 @@
+---
+title: ceļojums cerībā
+date: 2025-03-30
+---
 ilgstošā cerībā
 tumšajā vakarā
 pilnīgā neziņā
@@ -36,6 +40,3 @@ iekrīti tumsībā
 
 ilgi! ilgi! ilgi!
 mirsti! mirsti! mirsti!
-
-/cafiro/
-30.03.25
