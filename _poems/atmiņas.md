@@ -1,3 +1,9 @@
+---
+title: atmiņas
+date: |-
+  Date started: Unknown
+  Date finished: 2024-09-24
+---
 ieraugot akmeni atmiņas nāk,
 domas nelabas lidot sāk.
 tumšās domas problēmu dzen,
@@ -25,6 +31,3 @@ tos nelabos sapņus, tos spokus,
 viss kas atlicis ir tik taisīt jokus.
 pasmieties par savu atmiņu,
 gaidiet, es došu jums ziņu.
-
-/cafiro/
-10.09.24
