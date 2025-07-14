@@ -1,102 +1,104 @@
+/* --- Global Styles & Fonts --- */
 body {
     font-family: 'Lora', serif;
-    line-height: 1.8;
+    line-height: 1.7;
     color: #333;
-    background-color: #fdfdfd;
+    background-color: #f9f9f9;
     margin: 0;
     padding: 0;
-    /* We remove the global text-align: center; from here */
+}
+
+h1, h2, h3 {
+    font-family: 'Inter', sans-serif;
 }
 
 main {
-    max-width: 700px;
+    max-width: 750px;
     margin: 40px auto;
     padding: 20px;
 }
 
-/* Keep the header and footer centered */
-header,
-footer {
-    text-align: center;
-}
+a { color: #0056b3; text-decoration: none; }
+a:hover { text-decoration: underline; }
 
+/* --- Header & Footer --- */
 header {
-    padding: 40px 20px;
-    border-bottom: 1px solid #ddd;
+    text-align: center;
+    padding: 40px 20px 20px;
+    border-bottom: 1px solid #e0e0e0;
+    margin-bottom: 40px;
+}
+header h1 { margin: 0; font-size: 2.5em; font-weight: 700; color: #1a1a1a; }
+header p { margin: 5px 0 0; color: #666; font-style: italic; }
+
+footer { text-align: center; padding: 20px; margin-top: 60px; font-size: 0.9em; color: #888; border-top: 1px solid #e0e0e0; }
+
+/* --- Archive Page Controls (Search & Sort) --- */
+.controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     margin-bottom: 30px;
+    gap: 15px;
+}
+.search-input, .sort-select {
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+.search-input { flex-grow: 1; }
+.search-input:focus, .sort-select:focus {
+    outline: none;
+    border-color: #0056b3;
+    box-shadow: 0 0 5px rgba(0, 86, 179, 0.2);
 }
 
-header h1 { margin: 0; font-size: 2.5em; font-weight: 700; }
-
-/* --- Archive Page Styles --- */
-/* Keep the list of poems centered */
+/* --- Archive Poem List --- */
 .poem-list {
     list-style: none;
     padding: 0;
-    text-align: center;
 }
-.poem-list li { margin-bottom: 15px; font-size: 1.3em; }
-
-/* --- Key Changes for the Poem Page --- */
-
-.poem-container {
-    padding-top: 20px;
+.poem-list li {
+    background-color: #fff;
+    margin-bottom: 10px;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    transition: transform 0.2s, box-shadow 0.2s;
 }
-
-.back-link {
-    display: block; /* Make it a block to align it left */
-    text-align: left;
-    margin-bottom: 40px;
-    color: #0077cc;
+.poem-list li:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+.poem-list li a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
     text-decoration: none;
-    font-size: 0.9em;
+    color: #333;
 }
-
-/* Make the title left-aligned and bold */
-.poem-title {
-    text-align: left;
-    font-size: 2.2em;
-    font-weight: 700; /* Was 400, now bold */
-    margin-bottom: 30px;
+.item-title {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 1.1rem;
 }
-
-/* Make the poem body left-aligned and adjust line height */
-.poem-body {
-    text-align: left;
-    font-size: 1.1em;
-    line-height: 1.7; /* Slightly tighter for a classic feel */
-    margin-bottom: 50px;
-    white-space: pre-wrap;
-}
-
-/* Make the signature and date left-aligned */
-.artist-name,
-.date-block {
-    text-align: left;
-}
-
-.artist-name {
-    font-style: italic;
-    color: #555;
-    margin-bottom: 5px;
-}
-
-.date-block {
-    font-family: inherit;
-    font-size: 0.9em;
+.item-date {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
     color: #777;
-    margin: 0;
-    white-space: pre-wrap;
+    background-color: #f0f0f0;
+    padding: 3px 8px;
+    border-radius: 3px;
 }
 
-
-footer {
-    padding: 20px;
-    margin-top: 60px;
-    font-size: 0.9em;
-    color: #888;
-    border-top: 1px solid #eee;
-}
-
-a { color: #0077cc; text-decoration: none; }
-a:hover { text-decoration: underline; }
+/* --- Individual Poem Page Styles --- */
+.poem-container { padding-top: 20px; }
+.back-link { display: inline-block; margin-bottom: 40px; font-family: 'Inter', sans-serif; font-size: 0.9em; }
+.poem-title { text-align: left; font-size: 2.2em; font-weight: 700; margin-bottom: 30px; }
+.poem-body { text-align: left; font-size: 1.1em; line-height: 1.8; margin-bottom: 50px; white-space: pre-wrap; }
+.artist-name, .date-block { text-align: left; }
+.artist-name { font-style: italic; color: #555; margin-bottom: 5px; }
+.date-block { font-family: inherit; font-size: 0.9em; color: #777; margin: 0; white-space: pre-wrap; }
