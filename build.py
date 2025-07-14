@@ -12,7 +12,6 @@ ARTIST_NAME = "/cafiro/"
 
 # --- Helper Function to Extract a Sortable Date ---
 def get_sortable_date(date_string):
-    # Finds the first YYYY-MM-DD pattern in the date block
     match = re.search(r'\d{4}-\d{2}-\d{2}', str(date_string))
     return match.group(0) if match else '1970-01-01'
 
@@ -38,8 +37,8 @@ INDEX_TEMPLATE = """
         <div class="controls">
             <input type="text" id="searchInput" class="search-input" placeholder="Search poems by title...">
             <select id="sortSelect" class="sort-select">
-                <option value="newest">Newest First</option>
-                <option value="oldest">Oldest First</option>
+                <option value="newest">Sort: Newest First</option>
+                <option value="oldest">Sort: Oldest First</option>
             </select>
         </div>
         <ul id="poemList" class="poem-list">
@@ -68,7 +67,7 @@ POEM_TEMPLATE = """
 </head>
 <body>
     <main class="poem-container">
-        <a href="index.html" class="back-link">← Back to Archive</a>
+        <a href="index.html" class="back-link">← Back to The Archive</a>
         <h1 class="poem-title">{title}</h1>
         <div class="poem-body">
             {content}
@@ -83,7 +82,7 @@ POEM_TEMPLATE = """
 </html>
 """
 
-# --- Build Script Logic ---
+# --- Build Script Logic (No changes to this part) ---
 def build_site():
     print("Starting site build...")
     poems_data = []
@@ -124,7 +123,6 @@ def build_site():
 
     poem_links_html = ""
     for poem in poems_data:
-        # We now add the date and a data-date attribute for our JS to use
         poem_links_html += f'<li data-date="{poem["sort_date"]}"><a href="{poem["filename"]}"><span class="item-title">{poem["title"]}</span><span class="item-date">{poem["sort_date"]}</span></a></li>'
     
     index_content = INDEX_TEMPLATE.format(
@@ -136,7 +134,6 @@ def build_site():
         f.write(index_content)
     print("  - Built index.html")
 
-    # Copy both CSS and the new JS file
     if os.path.exists('style.css'):
         os.system(f'cp style.css {OUTPUT_DIR}/style.css')
         print("  - Copied style.css")
