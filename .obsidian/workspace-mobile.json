@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "daiļrade/domu graudi/Untitled 1.md",
+                "file": "daiļrade/domu graudi/egoiste.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Untitled 1"
+              "title": "egoiste"
             }
           }
         ],
@@ -172,6 +172,15 @@
   },
   "active": "0ab5ab86e1d6a949",
   "lastOpenFiles": [
+    "daiļrade/domu graudi/kāpēc.md",
+    "daiļrade/domu graudi/naids.md",
+    "daiļrade/domu graudi/ķerts, bet nenoķerts.md",
+    "daiļrade/domu graudi/reiz.md",
+    "daiļrade/domu graudi/savlīte.md",
+    "daiļrade/domu graudi/sirds.md",
+    "daiļrade/domu graudi/tu kā, es kā.md",
+    "daiļrade/domu graudi/Untitled.md",
+    "daiļrade/domu graudi/Untitled 1.md",
     "daiļrade/domu graudi/Untitled 2.md",
     "daiļrade/domu graudi/Untitled 3.md",
     "daiļrade/domu graudi/Untitled 5.md",
@@ -181,12 +190,6 @@
     "daiļrade/domu graudi/Untitled 8.md",
     "daiļrade/domu graudi/Untitled 9.md",
     "daiļrade/domu graudi/Untitled 10.md",
-    "daiļrade/domu graudi/Untitled 1.md",
-    "daiļrade/domu graudi/Untitled.md",
-    "daiļrade/domu graudi/reiz.md",
-    "daiļrade/domu graudi/naids.md",
-    "daiļrade/domu graudi/ķerts, bet nenoķerts.md",
-    "daiļrade/domu graudi/kāpēc.md",
     "daiļrade/domu graudi/egoiste.md",
     "templates/default_template.md",
     "_poems/vientuļais vientiesis.md",
@@ -195,9 +198,6 @@
     "_poems/tev, tava, tavs.md",
     "_poems/reklāma.md",
     "_poems/prostitūta.md",
-    "_poems/pasaka.md",
-    "_poems/no burbuļa līdz olai.md",
-    "_poems/nepareizi dzimušie.md",
     "/style.css",
     "/build.py",
     "/_poems",

@@ -1,19 +1,22 @@
 //meitene1 apraksta puiša, kas viņai patīk izskatu
 
-//acis +
+tur soļo mani ilgākie sapņi,
+kā gribu tos es iekarot,
+kam pieder
+
+šīs acis,
 kā mēness atspulgs ezerā zilā
-tā ir gaisma, kas iedzen mīlā
-<!mazais mirklis jau uzreiz pacilā!>
+tā ir gaisma, kas iedzen mani mīlā
 
-//mati +
+ak, šie mati,
 kā vētras viļņi, kas vējā plūst
-ar vienu skatienu sirds jau kūst
+ar vienu skatienu man sirds jau kūst
 
-//seja +
+un, šī seja,
 kā spožā saule, kas smaidu nes
-tā silda, tā priecē, tā siltumu nes
+tā silda, tā priecē, tā siltumu dveš
 
-//balss +
+arī balss,
 kā maigā debess, tik klusa, tik lēna
 ieaijā sapņos kā klusītiņa ēna
 
@@ -24,7 +27,7 @@ peisakainie makaroni
 atraida pat piķa bedri
 
 //balss
-asā uguns
+asā 'guns
 kas dedzina man iekšas
 
 //seja
