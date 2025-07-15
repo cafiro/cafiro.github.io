@@ -17,26 +17,36 @@ arī balss,
 kā maigā debess, tik klusa, tik lēna
 ieaijā sapņos kā klusītiņa ēna
 
-//meitene1 apraksta meitenes2 izskatu, kas tieši patīk puisim1
-tur arī pazūd mani sapņi,
 
-//mati
-peisakainie makaroni
-atraida pat piķa bedri
+manu sapni nupat atrada,
+lielā sapņu zagle ragana.
 
-//balss
-asā 'guns
-kas dedzina man iekšas
+tai mati,
+kā peisakaini makaroni,
+tie atraida pat piķa bedri.
 
-//seja
-izsmērētā dubļu peļķe
-kas nepiesaista pat cūkas
+tās balss,
+kā asa 'guns,
+tā dedzina man iekšas.
 
-//acis
-asie zobeni
-kas grauž neko nedarot
+tās seja,
+kā izsmērētā dubļu peļķe,
+tā nepiesaista pat cūkas.
 
-viņš ir mans
-vienmēr mans
-tavs? nē mans
-mūžīgi mans
+un tās acis,
+kā asi zobeni
+tie dur man dziļi sirdī
+
+viņš būs mans,
+vienmēr mans.
+vai tavs?
+nē - mans,
+mūžīgi mans.
+
+
+redzu sapni aizejam
+un tur arī paliekam.
+ar raganu ļaunu
+nemaz nejūtam kaunu.
+
+
