@@ -1,8 +1,5 @@
-//meitene1 apraksta puiša, kas viņai patīk izskatu
-
 tur soļo mani ilgākie sapņi,
-kā gribu tos es iekarot,
-kam pieder
+ko mīlēt gribu es akli.
 
 šīs acis,
 kā mēness atspulgs ezerā zilā
@@ -21,6 +18,7 @@ kā maigā debess, tik klusa, tik lēna
 ieaijā sapņos kā klusītiņa ēna
 
 //meitene1 apraksta meitenes2 izskatu, kas tieši patīk puisim1
+tur arī pazūd mani sapņi,
 
 //mati
 peisakainie makaroni
