@@ -43,6 +43,7 @@ vai tavs?
 nē - mans,
 mūžīgi mans.
 
+ilgu ilgā uzmanības cīņā
 
 redzu sapni aizejam
 un tur arī paliekam.
