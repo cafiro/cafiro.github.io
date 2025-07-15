@@ -1,4 +1,2 @@
-iztēle
-iedomu pasaule
-izvēle
-neeksitējoša
+iztēle - iedomu pasaule
+izvēle - neeksitējoša

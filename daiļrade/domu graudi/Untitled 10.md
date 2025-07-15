@@ -3,9 +3,9 @@ title:
 date:
 ---
 reiz mežiņā es staigāju
-ar pilnu ogu kasti.
+ar pilnu meža ogu kasti.
 ieraudzīju staltu zaķīti,
-rokās senseni raksti.
+rokās seni baltu raksti.
 
 
 nu, tik būs, nu tik būs
