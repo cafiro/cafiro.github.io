@@ -17,7 +17,5 @@ tagad tev tie virsu nāk,
 panikā tu klaigāt sāc.
 
 dīķa malā mošķi rāpo,
-drebot tu drebi navē.
-prom tik ņem un čāpo,
-
-
+drebinies tu nāvē baltā.
+mocoties ar mošķīšiem,
