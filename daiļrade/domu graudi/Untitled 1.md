@@ -8,7 +8,7 @@ pīpē vēl to velna zāli.
 
 ej pie ārsta solī ātrā,
 glābti glāb, nu, dzīvi savu.
-tupi un jautā sev kā tā,
+tup' un jautā sev kā tā,
 atvilkies pie bedres šās?
 
 apkārt zili ķēmi lēkāt sāk,
