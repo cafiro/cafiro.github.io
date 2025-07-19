@@ -72,6 +72,61 @@ footer { text-align: center; padding: 20px; margin-top: 60px; font-size: 0.9em; 
     display: inline-block;
     margin-top: 0.3em;
 }
+/* --- Improved Poem Page Styles --- */
+.poem-container {
+    max-width: 800px;
+    margin: 60px auto;
+    padding: 0 20px;
+    background-color: #fff;
+    border: 1px solid #e5e3e0;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.back-link {
+    display: inline-block;
+    margin-bottom: 30px;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    color: #8B4513;
+    text-decoration: none;
+}
+
+.back-link:hover {
+    color: #5a2d0c;
+}
+
+.poem-title {
+    font-size: 2.4em;
+    font-weight: 700;
+    margin-bottom: 30px;
+    color: #1a1a1a;
+    line-height: 1.3;
+}
+
+.poem-body {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #444;
+    margin-bottom: 40px;
+    white-space: pre-wrap;
+}
+
+.artist-name {
+    font-style: italic;
+    color: #777;
+    font-size: 1rem;
+    margin-bottom: 8px;
+}
+
+.date-block {
+    font-family: 'Lora', serif;
+    font-size: 0.95rem;
+    color: #999;
+    white-space: pre-wrap;
+    margin: 0;
+}
+
 
 /* --- Individual Poem Page Styles (Unchanged) --- */
 .poem-container { padding: 20px 0; }
