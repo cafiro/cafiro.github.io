@@ -35,7 +35,7 @@ def get_sortable_date(date_string):
     match = re.search(r'\\d{4}-\\d{2}-\\d{2}', str(date_string))
     return match.group(0) if match else '1970-01-01'
 
-# --- HTML Templates (Unchanged) ---
+# --- HTML Templates (Corrected) ---
 INDEX_TEMPLATE = """
 <!DOCTYPE html>
 <html lang="en">
@@ -79,24 +79,24 @@ INDEX_TEMPLATE = """
     const poemList = document.getElementById('poemList');
     let poems = Array.from(poemList.children);
 
-    function filterAndSort() {
+    function filterAndSort() {{
         const query = searchInput.value.toLowerCase();
         const sortOrder = sortSelect.value;
-        let filtered = poems.filter(li => {
+        let filtered = poems.filter(li => {{
             const title = li.getAttribute('data-title').toLowerCase();
             const content = li.getAttribute('data-content').toLowerCase();
             const date = li.getAttribute('data-date');
             return title.includes(query) || content.includes(query) || date.includes(query);
-        });
-        filtered.sort((a, b) => {
+        }});
+        filtered.sort((a, b) => {{
             const dateA = a.getAttribute('data-date');
             const dateB = b.getAttribute('data-date');
             if (sortOrder === 'asc') return dateA.localeCompare(dateB);
             else return dateB.localeCompare(dateA);
-        });
+        }});
         poemList.innerHTML = '';
         filtered.forEach(li => poemList.appendChild(li));
-    }
+    }}
     searchInput.addEventListener('input', filterAndSort);
     sortSelect.addEventListener('change', filterAndSort);
     </script>
