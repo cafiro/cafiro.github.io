@@ -47,12 +47,24 @@ INDEX_TEMPLATE = """
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Lora:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        .search-sort-bar { display: flex; gap: 1em; margin-bottom: 2em; }
+        .search-input { flex: 1; padding: 0.5em; font-size: 1em; }
+        .sort-select { padding: 0.5em; font-size: 1em; }
+    </style>
 </head>
 <body>
     <header>
         <h1>{site_title}</h1>
     </header>
     <main>
+        <div class="search-sort-bar">
+            <input type="text" id="searchInput" class="search-input" placeholder="Search by name, content, or date...">
+            <select id="sortSelect" class="sort-select">
+                <option value="desc">Date: Newest First</option>
+                <option value="asc">Date: Oldest First</option>
+            </select>
+        </div>
         <ul id="poemList" class="poem-list">
             {poem_links}
         </ul>
@@ -60,6 +72,34 @@ INDEX_TEMPLATE = """
     <footer>
         <p>© 2025 {author_name}</p>
     </footer>
+    <script>
+    // --- Search & Sort Logic ---
+    const searchInput = document.getElementById('searchInput');
+    const sortSelect = document.getElementById('sortSelect');
+    const poemList = document.getElementById('poemList');
+    let poems = Array.from(poemList.children);
+
+    function filterAndSort() {
+        const query = searchInput.value.toLowerCase();
+        const sortOrder = sortSelect.value;
+        let filtered = poems.filter(li => {
+            const title = li.getAttribute('data-title').toLowerCase();
+            const content = li.getAttribute('data-content').toLowerCase();
+            const date = li.getAttribute('data-date');
+            return title.includes(query) || content.includes(query) || date.includes(query);
+        });
+        filtered.sort((a, b) => {
+            const dateA = a.getAttribute('data-date');
+            const dateB = b.getAttribute('data-date');
+            if (sortOrder === 'asc') return dateA.localeCompare(dateB);
+            else return dateB.localeCompare(dateA);
+        });
+        poemList.innerHTML = '';
+        filtered.forEach(li => poemList.appendChild(li));
+    }
+    searchInput.addEventListener('input', filterAndSort);
+    sortSelect.addEventListener('change', filterAndSort);
+    </script>
 </body>
 </html>
 """
@@ -136,7 +176,7 @@ def build_site():
     poem_links_html = ""
     for poem in poems_data:
         poem_links_html += f"""
-        <li class="poem-card">
+        <li class="poem-card" data-title="{poem['title']}" data-content="{poem['preview'].replace('"', '&quot;')}" data-date="{poem['sort_date']}">
             <h2 class="index-poem-title"><a href="{poem['filename']}">{poem['title']}</a></h2>
             <div class="poem-preview">{poem['preview']}</div>
             <a href="{poem['filename']}" class="read-more">Read more →</a>
