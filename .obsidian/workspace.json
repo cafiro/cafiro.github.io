@@ -11,10 +11,14 @@
             "id": "01c0278b01892838",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "daiļrade/domu graudi/Untitled 11.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "Untitled 11"
             }
           }
         ]
@@ -108,11 +112,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "daiļrade/domu graudi/Untitled 11.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links"
+              "title": "Outgoing links from Untitled 11"
             }
           },
           {
@@ -136,12 +141,13 @@
             "state": {
               "type": "outline",
               "state": {
+                "file": "daiļrade/domu graudi/Untitled 11.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline"
+              "title": "Outline of Untitled 11"
             }
           },
           {
@@ -173,8 +179,9 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "9a56828ee24f928c",
+  "active": "01c0278b01892838",
   "lastOpenFiles": [
+    "daiļrade/domu graudi/Untitled 11.md",
     "daiļrade/domu graudi/Untitled 10.md",
     "daiļrade/pabeigtie/dzeja/fantāzija.md",
     "_poems/nekā nav.md",
@@ -200,7 +207,6 @@
     "_poems/pasaka.md",
     "daiļrade/pabeigtie/dzeja/pasaka.md",
     "_poems/nepareizi dzimušie.md",
-    "daiļrade/pabeigtie/dzeja/nepareizi dzimušie.md",
     "daiļrade/pabeigtie/dzeja/The Cigarette Triology",
     "daiļrade/pabeigtie/stāsts",
     "daiļrade/pabeigtie/reps",
