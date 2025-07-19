@@ -19,7 +19,8 @@ def generate_preview(poem_md_text, line_limit=6):
     lines = poem_md_text.strip().split('\n')
     preview_lines = lines[:line_limit]
     preview_md = '\n'.join(preview_lines)
-    preview_html = markdown2.markdown(preview_md, extras=["break-on-newline"])
+    preview_html += '<br><span class="ellipsis">...</span>'
+
 
     if len(lines) > line_limit:
         preview_html += '<br>...'
