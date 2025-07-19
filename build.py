@@ -6,7 +6,7 @@ import re
 # --- Configuration ---
 POEMS_DIR = '_poems'
 OUTPUT_DIR = 'public'
-SITE_TITLE = "The Collective Archive of cafiro"
+SITE_TITLE = "The Collective Archive Of cafiro"
 AUTHOR_NAME = "cafiro"
 ARTIST_NAME = "/cafiro/"
 
