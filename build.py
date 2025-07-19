@@ -2,6 +2,7 @@ import os
 import markdown2
 import yaml
 import re
+from html import unescape
 
 # --- Configuration ---
 POEMS_DIR = '_poems'
@@ -11,30 +12,23 @@ AUTHOR_NAME = "cafiro"
 ARTIST_NAME = "/cafiro/"
 
 def generate_preview(poem_md_text, line_limit=6):
-    """
-    Generates a preview of the poem from its raw markdown (before HTML).
-    Shows only the first `line_limit` lines.
-    """
     lines = poem_md_text.strip().split('\n')
     preview_lines = lines[:line_limit]
     preview_md = '\n'.join(preview_lines)
-    
-    # Convert to HTML and start with that
     preview_html = markdown2.markdown(preview_md, extras=["break-on-newline"])
-
-    # Add ellipsis only if more lines exist
     if len(lines) > line_limit:
         preview_html += '<br><span class="ellipsis">...</span>'
-
     return preview_html
 
-
-# --- Helper Function to Extract a Sortable Date ---
 def get_sortable_date(date_string):
-    match = re.search(r'\\d{4}-\\d{2}-\\d{2}', str(date_string))
+    match = re.search(r'\d{4}-\d{2}-\d{2}', str(date_string))
     return match.group(0) if match else '1970-01-01'
 
-# --- HTML Templates (With Escaped Braces for CSS/JS) ---
+def strip_html_tags(html):
+    text = re.sub('<[^<]+?>', '', html)
+    return unescape(text).strip()
+
+# --- HTML Templates ---
 INDEX_TEMPLATE = """
 <!DOCTYPE html>
 <html lang="en">
@@ -72,7 +66,6 @@ INDEX_TEMPLATE = """
         <p>© 2025 {author_name}</p>
     </footer>
     <script>
-    // --- Search & Sort Logic ---
     const searchInput = document.getElementById('searchInput');
     const sortSelect = document.getElementById('sortSelect');
     const poemList = document.getElementById('poemList');
@@ -90,12 +83,12 @@ INDEX_TEMPLATE = """
         filtered.sort((a, b) => {{
             const dateA = a.getAttribute('data-date');
             const dateB = b.getAttribute('data-date');
-            if (sortOrder === 'asc') return dateA.localeCompare(dateB);
-            else return dateB.localeCompare(dateA);
+            return sortOrder === 'asc' ? dateA.localeCompare(dateB) : dateB.localeCompare(dateA);
         }});
         poemList.innerHTML = '';
         filtered.forEach(li => poemList.appendChild(li));
     }}
+
     searchInput.addEventListener('input', filterAndSort);
     sortSelect.addEventListener('change', filterAndSort);
     </script>
@@ -132,11 +125,11 @@ POEM_TEMPLATE = """
 </html>
 """
 
-# --- Build Script Logic (Corrected) ---
+# --- Build Logic ---
 def build_site():
     print("Starting site build...")
     poems_data = []
-    
+
     if not os.path.exists(OUTPUT_DIR):
         os.makedirs(OUTPUT_DIR)
 
@@ -151,7 +144,7 @@ def build_site():
                     poem_md = '---'.join(parts[2:]).strip()
                     poem_html = markdown2.markdown(poem_md, extras=["break-on-newline"])
                     metadata['full_content'] = poem_html
-                    metadata['preview_content'] = generate_preview(poem_md)  # Pass raw markdown here
+                    metadata['preview_content'] = generate_preview(poem_md)
                     metadata['filename'] = filename.replace('.md', '.html')
                     metadata['sort_date'] = get_sortable_date(metadata.get('date', ''))
                     poems_data.append(metadata)
@@ -161,7 +154,7 @@ def build_site():
     for poem in poems_data:
         page_content = POEM_TEMPLATE.format(
             title=poem.get('title', 'Untitled'),
-            content=poem.get('full_content', ''), # Use full_content for the poem's own page
+            content=poem.get('full_content', ''),
             artist_name=ARTIST_NAME,
             date=poem.get('date', ''),
             site_title=SITE_TITLE,
@@ -173,17 +166,15 @@ def build_site():
 
     poem_links_html = ""
     for poem in poems_data:
-        # --- KEY CHANGE IS HERE ---
-        # We now use 'preview_content' for the visible text on the card.
-        # The 'data-content' attribute for searching still gets the full, clean text.
+        clean_text = strip_html_tags(poem['full_content']).replace('"', "'")
         poem_links_html += f"""
-        <li class="poem-card" data-title="{poem['title']}" data-content="{poem['full_content'].replace('"', '"').replace('<br>', ' ')}" data-date="{poem['sort_date']}">
+        <li class="poem-card" data-title="{poem['title']}" data-content="{clean_text}" data-date="{poem['sort_date']}">
             <h2 class="index-poem-title"><a href="{poem['filename']}">{poem['title']}</a></h2>
             <div class="poem-preview">{poem['preview_content']}</div>
             <a href="{poem['filename']}" class="read-more">Read more →</a>
         </li>
         """
-    
+
     index_content = INDEX_TEMPLATE.format(
         site_title=SITE_TITLE,
         author_name=AUTHOR_NAME,
@@ -194,7 +185,6 @@ def build_site():
     print("  - Built index.html")
 
     if os.path.exists('style.css'):
-        # Correctly copy the CSS file to the output directory
         os.system(f'cp style.css {os.path.join(OUTPUT_DIR, "style.css")}')
         print("  - Copied style.css")
 
