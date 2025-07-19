@@ -1,41 +1,53 @@
-//meitene1 apraksta puiša, kas viņai patīk izskatu
+tur soļo mani ilgākie sapņi,
+ko mīlēt gribu es akli.
 
-//acis +
+šīs acis,
 kā mēness atspulgs ezerā zilā
-tā ir gaisma, kas iedzen mīlā
-<!mazais mirklis jau uzreiz pacilā!>
+tā ir gaisma, kas iedzen mani mīlā
 
-//mati +
+ak, šie mati,
 kā vētras viļņi, kas vējā plūst
-ar vienu skatienu sirds jau kūst
+ar vienu skatienu man sirds jau kūst
 
-//seja +
+un, šī seja,
 kā spožā saule, kas smaidu nes
-tā silda, tā priecē, tā siltumu nes
+tā silda, tā priecē, tā siltumu dveš
 
-//balss +
+arī balss,
 kā maigā debess, tik klusa, tik lēna
 ieaijā sapņos kā klusītiņa ēna
 
-//meitene1 apraksta meitenes2 izskatu, kas tieši patīk puisim1
 
-//mati
-peisakainie makaroni
-atraida pat piķa bedri
+manu sapni nupat atrada,
+lielā sapņu zagle ragana.
 
-//balss
-asā uguns
-kas dedzina man iekšas
+tai mati,
+kā peisakaini makaroni,
+tie atraida pat piķa bedri.
 
-//seja
-izsmērētā dubļu peļķe
-kas nepiesaista pat cūkas
+tās balss,
+kā asa 'guns,
+tā dedzina man iekšas.
 
-//acis
-asie zobeni
-kas grauž neko nedarot
+tās seja,
+kā izsmērētā dubļu peļķe,
+tā nepiesaista pat cūkas.
 
-viņš ir mans
-vienmēr mans
-tavs? nē mans
-mūžīgi mans
+un tās acis,
+kā asi zobeni
+tie dur man dziļi sirdī
+
+viņš būs mans,
+vienmēr mans.
+vai tavs?
+nē - mans,
+mūžīgi mans.
+
+ilgu ilgā uzmanības cīņā
+
+redzu sapni aizejam
+un tur arī paliekam.
+ar raganu ļaunu
+nemaz nejūtam kaunu.
+
+

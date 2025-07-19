@@ -8,7 +8,7 @@ pīpē vēl to velna zāli.
 
 ej pie ārsta solī ātrā,
 glābti glāb, nu, dzīvi savu.
-tupi un jautā sev kā tā,
+tup' un jautā sev kā tā,
 atvilkies pie bedres šās?
 
 apkārt zili ķēmi lēkāt sāk,
@@ -17,7 +17,5 @@ tagad tev tie virsu nāk,
 panikā tu klaigāt sāc.
 
 dīķa malā mošķi rāpo,
-drebot tu drebi navē.
-prom tik ņem un čāpo,
-
-
+drebinies tu nāvē baltā.
+mocoties ar mošķīšiem,
