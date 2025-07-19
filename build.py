@@ -11,7 +11,7 @@ AUTHOR_NAME = "cafiro"
 ARTIST_NAME = "/cafiro/"
 
 # --- UPDATED: Helper Function to Generate a Preview ---
-def generate_preview(html_content, line_limit=8):
+def generate_preview(html_content, line_limit=5): # <--- THIS LINE IS CHANGED
     """
     Generates a preview of up to `line_limit` lines, preserving <br> tags.
     """
@@ -35,7 +35,8 @@ def get_sortable_date(date_string):
     match = re.search(r'\\d{4}-\\d{2}-\\d{2}', str(date_string))
     return match.group(0) if match else '1970-01-01'
 
-# --- HTML Templates (Corrected) ---
+# --- HTML Templates (Unchanged from previous fix) ---
+# NOTE: The INDEX_TEMPLATE should have escaped curly braces {{ }} for CSS/JS
 INDEX_TEMPLATE = """
 <!DOCTYPE html>
 <html lang="en">
@@ -176,7 +177,7 @@ def build_site():
     poem_links_html = ""
     for poem in poems_data:
         poem_links_html += f"""
-        <li class="poem-card" data-title="{poem['title']}" data-content="{poem['preview'].replace('"', '&quot;')}" data-date="{poem['sort_date']}">
+        <li class="poem-card" data-title="{poem['title']}" data-content="{poem['preview'].replace('"', '"')}" data-date="{poem['sort_date']}">
             <h2 class="index-poem-title"><a href="{poem['filename']}">{poem['title']}</a></h2>
             <div class="poem-preview">{poem['preview']}</div>
             <a href="{poem['filename']}" class="read-more">Read more →</a>
