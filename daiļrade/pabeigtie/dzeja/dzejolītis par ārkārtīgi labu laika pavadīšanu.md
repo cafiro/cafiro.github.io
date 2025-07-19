@@ -1,7 +1,3 @@
----
-title: dzejolītis, par ārkārtīgi labu laika pavadīšanu
-date: 2025-04-04
----
 alejāsi'
 būšu, bušu
 klibs gar zemi
@@ -55,3 +51,6 @@ nezināti
 ko es vakar
 sadarīj'
 2x
+
+/cafiro/
+04.04.25
