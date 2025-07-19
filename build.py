@@ -10,24 +10,21 @@ SITE_TITLE = "The Collective Archive Of cafiro"
 AUTHOR_NAME = "cafiro"
 ARTIST_NAME = "/cafiro/"
 
-# --- UPDATED: Helper Function to Generate a Preview ---
+# --- CORRECTED: Helper Function to Generate a Preview ---
 def generate_preview(html_content, line_limit=5):
     """
-    Generates a preview of up to `line_limit` lines, preserving <br> tags,
-    and adds an ellipsis on a new line if truncated.
+    Generates a preview of up to `line_limit` lines.
     """
     # Split the HTML content into lines based on <br> tags
     lines = re.split(r'\\s*<br\\s*/?>\\s*', html_content.strip())
     
-    # Check if the poem is longer than the preview limit
+    # Get the first `line_limit` lines
+    preview_lines = lines[:line_limit]
+    preview_html = '<br>'.join(preview_lines)
+
+    # Add an ellipsis if the poem was truncated
     if len(lines) > line_limit:
-        # Take the first 5 lines
-        preview_lines = lines[:line_limit]
-        # Join them back and add the ellipsis on a new line
-        preview_html = '<br>'.join(preview_lines) + '<br>...'
-    else:
-        # If the poem is 5 lines or shorter, show the whole thing without an ellipsis
-        preview_html = '<br>'.join(lines)
+        preview_html += '<br>...'
         
     return preview_html
 
@@ -36,8 +33,7 @@ def get_sortable_date(date_string):
     match = re.search(r'\\d{4}-\\d{2}-\\d{2}', str(date_string))
     return match.group(0) if match else '1970-01-01'
 
-# --- HTML Templates (Unchanged from previous fix) ---
-# NOTE: The INDEX_TEMPLATE should have escaped curly braces {{ }} for CSS/JS
+# --- HTML Templates (With Escaped Braces for CSS/JS) ---
 INDEX_TEMPLATE = """
 <!DOCTYPE html>
 <html lang="en">
@@ -135,7 +131,7 @@ POEM_TEMPLATE = """
 </html>
 """
 
-# --- Build Script Logic (Unchanged) ---
+# --- Build Script Logic (Corrected) ---
 def build_site():
     print("Starting site build...")
     poems_data = []
@@ -154,10 +150,11 @@ def build_site():
                     poem_md = '---'.join(parts[2:]).strip()
                     poem_html = markdown2.markdown(poem_md, extras=["break-on-newline"])
                     
-                    metadata['content'] = poem_html
+                    # Store both full content and the generated preview
+                    metadata['full_content'] = poem_html
+                    metadata['preview_content'] = generate_preview(poem_html) # Generate the preview here
                     metadata['filename'] = filename.replace('.md', '.html')
                     metadata['sort_date'] = get_sortable_date(metadata.get('date', ''))
-                    metadata['preview'] = generate_preview(poem_html)
                     poems_data.append(metadata)
 
     poems_data.sort(key=lambda p: p['sort_date'], reverse=True)
@@ -165,7 +162,7 @@ def build_site():
     for poem in poems_data:
         page_content = POEM_TEMPLATE.format(
             title=poem.get('title', 'Untitled'),
-            content=poem.get('content', ''),
+            content=poem.get('full_content', ''), # Use full_content for the poem's own page
             artist_name=ARTIST_NAME,
             date=poem.get('date', ''),
             site_title=SITE_TITLE,
@@ -177,10 +174,13 @@ def build_site():
 
     poem_links_html = ""
     for poem in poems_data:
+        # --- KEY CHANGE IS HERE ---
+        # We now use 'preview_content' for the visible text on the card.
+        # The 'data-content' attribute for searching still gets the full, clean text.
         poem_links_html += f"""
-        <li class="poem-card" data-title="{poem['title']}" data-content="{poem['preview'].replace('"', '"')}" data-date="{poem['sort_date']}">
+        <li class="poem-card" data-title="{poem['title']}" data-content="{poem['full_content'].replace('"', '"').replace('<br>', ' ')}" data-date="{poem['sort_date']}">
             <h2 class="index-poem-title"><a href="{poem['filename']}">{poem['title']}</a></h2>
-            <div class="poem-preview">{poem['preview']}</div>
+            <div class="poem-preview">{poem['preview_content']}</div>
             <a href="{poem['filename']}" class="read-more">Read more →</a>
         </li>
         """
@@ -195,7 +195,8 @@ def build_site():
     print("  - Built index.html")
 
     if os.path.exists('style.css'):
-        os.system(f'cp style.css {OUTPUT_DIR}/style.css')
+        # Correctly copy the CSS file to the output directory
+        os.system(f'cp style.css {os.path.join(OUTPUT_DIR, "style.css")}')
         print("  - Copied style.css")
 
     print("Site build complete!")
