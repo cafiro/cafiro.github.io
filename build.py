@@ -11,21 +11,19 @@ AUTHOR_NAME = "cafiro"
 ARTIST_NAME = "/cafiro/"
 
 # --- CORRECTED: Helper Function to Generate a Preview ---
-def generate_preview(html_content, line_limit=5):
+def generate_preview(poem_md_text, line_limit=6):
     """
-    Generates a preview of up to `line_limit` lines.
+    Generates a preview of the poem from its raw markdown (before HTML).
+    Shows only the first `line_limit` lines.
     """
-    # Split the HTML content into lines based on <br> tags
-    lines = re.split(r'\\s*<br\\s*/?>\\s*', html_content.strip())
-    
-    # Get the first `line_limit` lines
+    lines = poem_md_text.strip().split('\n')
     preview_lines = lines[:line_limit]
-    preview_html = '<br>'.join(preview_lines)
+    preview_md = '\n'.join(preview_lines)
+    preview_html = markdown2.markdown(preview_md, extras=["break-on-newline"])
 
-    # Add an ellipsis if the poem was truncated
     if len(lines) > line_limit:
         preview_html += '<br>...'
-        
+
     return preview_html
 
 # --- Helper Function to Extract a Sortable Date ---
@@ -149,10 +147,8 @@ def build_site():
                     metadata = yaml.safe_load(parts[1])
                     poem_md = '---'.join(parts[2:]).strip()
                     poem_html = markdown2.markdown(poem_md, extras=["break-on-newline"])
-                    
-                    # Store both full content and the generated preview
                     metadata['full_content'] = poem_html
-                    metadata['preview_content'] = generate_preview(poem_html) # Generate the preview here
+                    metadata['preview_content'] = generate_preview(poem_md)  # Pass raw markdown here
                     metadata['filename'] = filename.replace('.md', '.html')
                     metadata['sort_date'] = get_sortable_date(metadata.get('date', ''))
                     poems_data.append(metadata)
