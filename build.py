@@ -10,7 +10,6 @@ SITE_TITLE = "The Collective Archive Of cafiro"
 AUTHOR_NAME = "cafiro"
 ARTIST_NAME = "/cafiro/"
 
-# --- CORRECTED: Helper Function to Generate a Preview ---
 def generate_preview(poem_md_text, line_limit=6):
     """
     Generates a preview of the poem from its raw markdown (before HTML).
@@ -19,13 +18,16 @@ def generate_preview(poem_md_text, line_limit=6):
     lines = poem_md_text.strip().split('\n')
     preview_lines = lines[:line_limit]
     preview_md = '\n'.join(preview_lines)
-    preview_html += '<br><span class="ellipsis">...</span>'
+    
+    # Convert to HTML and start with that
+    preview_html = markdown2.markdown(preview_md, extras=["break-on-newline"])
 
-
+    # Add ellipsis only if more lines exist
     if len(lines) > line_limit:
-        preview_html += '<br>...'
+        preview_html += '<br><span class="ellipsis">...</span>'
 
     return preview_html
+
 
 # --- Helper Function to Extract a Sortable Date ---
 def get_sortable_date(date_string):
