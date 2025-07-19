@@ -57,7 +57,8 @@ footer { text-align: center; padding: 20px; margin-top: 60px; font-size: 0.9em; 
     font-size: 1.1rem;
     line-height: 1.8;
     color: #444;
-    margin: 0 0 25px 0; /* Increased bottom margin */
+    /* Reduced margin to bring "Read more" link closer */
+    margin: 0 0 15px 0; 
 }
 .read-more {
     font-family: 'Inter', sans-serif;

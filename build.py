@@ -11,22 +11,23 @@ AUTHOR_NAME = "cafiro"
 ARTIST_NAME = "/cafiro/"
 
 # --- UPDATED: Helper Function to Generate a Preview ---
-def generate_preview(html_content, line_limit=5): # <--- THIS LINE IS CHANGED
+def generate_preview(html_content, line_limit=5):
     """
-    Generates a preview of up to `line_limit` lines, preserving <br> tags.
+    Generates a preview of up to `line_limit` lines, preserving <br> tags,
+    and adds an ellipsis on a new line if truncated.
     """
-    # Split the HTML content by <br> tags (handles <br> and <br />)
+    # Split the HTML content into lines based on <br> tags
     lines = re.split(r'\\s*<br\\s*/?>\\s*', html_content.strip())
     
-    # Get the first `line_limit` lines
-    preview_lines = lines[:line_limit]
-    
-    # Join them back together with proper HTML line breaks
-    preview_html = '<br>'.join(preview_lines)
-
-    # Add an ellipsis if the poem was truncated
+    # Check if the poem is longer than the preview limit
     if len(lines) > line_limit:
-        preview_html += '...'
+        # Take the first 5 lines
+        preview_lines = lines[:line_limit]
+        # Join them back and add the ellipsis on a new line
+        preview_html = '<br>'.join(preview_lines) + '<br>...'
+    else:
+        # If the poem is 5 lines or shorter, show the whole thing without an ellipsis
+        preview_html = '<br>'.join(lines)
         
     return preview_html
 
