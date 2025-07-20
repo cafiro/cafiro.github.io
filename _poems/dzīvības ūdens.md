@@ -1,3 +1,7 @@
+---
+title: dzīvības ūdens
+date: 2025-06-19
+---
 visi dzīvi būdami,
 plūstam mēs ar ūdeni.
 nāk, nu mūsu skaistais brālis,
@@ -12,5 +16,3 @@ tālumā atskan kaut kas skaļš,
 gar acīm sāk palikt viegli zaļš.
 nekad neatstāj sevi vienu,
 lūdzies vēl vienu pilienu.
-
-/cafiro/ 19.06.25

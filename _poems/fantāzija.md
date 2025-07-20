@@ -1,3 +1,7 @@
+---
+title: fantāzija
+date: 2025-04-05
+---
 ciets kā miets
 mans acu siets
 maigs kā rasa
@@ -62,6 +66,3 @@ nenožēlot paveikto
 aizmirst to pareizo
 baudīt dzīvi visur
 citādi tiks nekur
-
-/cafiro/
-05.04.25

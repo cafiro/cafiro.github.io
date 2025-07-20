@@ -1,3 +1,7 @@
+---
+title: l.i.f.e.
+date: 2023-10-10
+---
 bullet, skull, pain, death penalty  
 the sudden sting is poking my heart.  
 it all starts to seem like a comedy  
@@ -17,6 +21,3 @@ lingering shadows enter the back of my mind
 internal echoes in my mind are one of a kind  
 fading feelings and my depression combined  
 emptiness is the reason I became so blind
-
-/cafiro/
-10.2023

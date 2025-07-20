@@ -1,3 +1,7 @@
+---
+title: dot, dot, dot
+date: 2024-11-11
+---
 Even birds are caged to the sky,
 As even humans are bound to lie.
 The thought of freedom makes us fly,
@@ -27,5 +31,3 @@ Dare we risk the fall to fly,
 To rise beyond, reach past the sky?
 For in the breaking, we might find
 A world unchained, a freed mind.
-
-/cafiro/ 11.11.24
