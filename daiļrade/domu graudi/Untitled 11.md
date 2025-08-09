@@ -2,4 +2,6 @@
 title: 
 date:
 ---
-šie izsmalcinātie rožu ziedi
+visapkārt lido odi
+vakarā atkal kodi
+to lēto veiča lodi
