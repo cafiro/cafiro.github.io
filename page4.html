@@ -1,0 +1,330 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Collective Archive Of cafiro</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Lora:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        .search-sort-bar { display: flex; gap: 1em; margin-bottom: 2em; }
+        .search-input { flex: 1; padding: 0.5em; font-size: 1em; }
+        .sort-select { padding: 0.5em; font-size: 1em; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>The Collective Archive Of cafiro</h1>
+    </header>
+    <main>
+        <div class="search-sort-bar">
+            <input type="text" id="searchInput" class="search-input" placeholder="Search by name, content, or date...">
+            <select id="sortSelect" class="sort-select">
+                <option value="desc">Date: Newest First</option>
+                <option value="asc">Date: Oldest First</option>
+            </select>
+        </div>
+        <ul id="poemList" class="poem-list">
+            
+        <li class="poem-card" data-title="tev, tava, tavs" data-content="būšu tava [meitene]
+pirmā.
+    būšu tavs [zēns]
+    pēdējais.
+tava alfa [m]
+un omega.
+    tavs sākums [z]
+    un gals.
+
+tava gaisma [m]
+uz zemes,
+    tavu vēlmju [z]
+    visums.
+bez tevis [m]
+man klāt,
+    esmu liels [z]
+    izmisums.
+
+nesaki [m]
+ka neesmu pirmā,
+neaizpūt
+tu mani vējā.
+    gribu būt [z]
+    es tava miesa,
+    tavas zied-
+    lapiņas tējā.
+
+lūdz mani [m]
+lai esmu tava,
+vienmēr un visur.
+    lūdzu tevi [z]
+    lai esi mana,
+    tagad un tepat.
+
+mīli mani [m]
+vienīgo,
+    tikai tevi [z]
+    vairāk.
+mīlu tevi [m]
+vienīgo,
+    tikai vēl [z]
+    vairāk.
+
+tavas acis [m]
+iemirdzās,
+    mana sirds [z]
+    sabaidās.
+tavas domas [m]
+satiekās,
+    mana elpa [z]
+    aizdegās.
+
+sirdspuksti [m]
+pacelās,
+    pārgalvība [z]
+    arī.
+mūsu lūpas [m]
+saskarās,
+    dzīvoju [z]
+    es tavā sapnī.
+
+mana visa [m]
+pasaule,
+pazūd sejas
+priekšā.
+    sāpju lemtā [z]
+    pusaudze,
+    es tev saku
+    cieņā." data-date="2024-07-16">
+            <h2 class="index-poem-title"><a href="tev, tava, tavs.html">tev, tava, tavs</a></h2>
+            <div class="poem-preview"><p>būšu tava [meitene]<br />
+pirmā.<br />
+    būšu tavs [zēns]<br />
+    pēdējais.<br />
+tava alfa [m]<br />
+un omega.</p>
+<br><span class="ellipsis">...</span></div>
+            <a href="tev, tava, tavs.html" class="read-more">Read more →</a>
+        </li>
+        
+        <li class="poem-card" data-title="vasara" data-content="tavu jūtu mudžeklī
+tauriņi ķērc
+saldais nekomforts
+mīlas vērts
+
+smalki intīmajās sarunās
+ieķerti mēs
+puišu maigos glāstos
+mūs izdzirdēs
+
+karstuma viļņi dedzina
+ādu sarkanu
+krēmi pat nepalīdz glābt
+miesu manu
+
+tās glābiņs esi tu
+mana roze
+skaista un ļoti asa
+mīlas doze
+
+peldu kā mākoņos
+apjucis tēls
+nāk nu mums klāt
+vakars vēls
+
+vārdi te pasprūk
+domā manā
+cik jauki tevi just
+domu zvanā
+
+mans viss sākums
+dzīves gals
+bez tevis nevaru
+mīlas balss
+
+pieņem mani tepat
+kailā mīlā
+neturi mani savā
+vārdu ķīlā
+
+sūc mani dzīvu
+līdz malai
+gatavo mani savai
+mūža alai
+
+esmu tikai tavs
+viens pats
+vienmēr būsi tu
+mans skats" data-date="2024-06-22">
+            <h2 class="index-poem-title"><a href="vasara.html">vasara</a></h2>
+            <div class="poem-preview"><p>tavu jūtu mudžeklī<br />
+tauriņi ķērc<br />
+saldais nekomforts<br />
+mīlas vērts</p>
+
+<p>smalki intīmajās sarunās</p>
+<br><span class="ellipsis">...</span></div>
+            <a href="vasara.html" class="read-more">Read more →</a>
+        </li>
+        
+        <li class="poem-card" data-title="reklāma" data-content="reklāma, nospied, cik nav žēl,
+atmiņas pazūd man diemžēl.
+laužos ārā cik vien spēka,
+nekad neizmukšu no cilvēka.
+
+cilvēks tapa radīts, sists un slānīts,
+paša velna miltiem čaulā tīts.
+atmiņu ciešanas kļūst svešas,
+tur dusmas, plešas un plešas.
+
+plešas kā zemeņu lauki,
+kas visuma tukšumā saukti.
+kodiens zemenē saldā,
+iekļūsti nezināmā maldā.
+
+maldā, kas dvēseli aptumšo,
+lūdzu, sargājiet svarīgi to.
+brūk un pil gauži, gauži,
+pēdējo elpu veic plauži.
+
+plauži, plauži, gārdz un kliedz,
+ak, ku' daudzi jau ir smiets.
+smiets līdz pašai debesmalai,
+sitot cauri skaņas skalai.
+
+skalai, kas tur dzirdi tavu,
+ak dievs, neatstāj savu.
+savu sirdi, kas ir rāma,
+mūc, bet visur reklāma." data-date="2024-05-15">
+            <h2 class="index-poem-title"><a href="reklāma.html">reklāma</a></h2>
+            <div class="poem-preview"><p>reklāma, nospied, cik nav žēl,<br />
+atmiņas pazūd man diemžēl.<br />
+laužos ārā cik vien spēka,<br />
+nekad neizmukšu no cilvēka.</p>
+
+<p>cilvēks tapa radīts, sists un slānīts,</p>
+<br><span class="ellipsis">...</span></div>
+            <a href="reklāma.html" class="read-more">Read more →</a>
+        </li>
+        
+        <li class="poem-card" data-title="vientuļais vientiesis" data-content="cilvēki, cilvēki,
+visa visuma zinātāji.
+ak, vientieši,
+šīs pasaules neapzinātāji.
+
+vai kas cits mūs uztrauc,
+vientuļos vientiešus,
+šīs pasaules neapzinātājus.
+
+tur lidmašinā,
+kāds sēdēja lietuviski,
+varbūt angliski,
+iespējams nesēdēja vispār.
+
+vientuļo vientiesi,
+šādas raizes neuztrauc.
+viņš lūko pēc dzīves,
+kas to klusītēm sauc.
+
+apzinies, bet neapzinies,
+ka visums tevi sauc.
+visā visumā visums ir viss.
+
+vai vientieša laime ir svarīga,
+nē, tā ir tikai domu ilūzija.
+dedzina, dedzina sāpju doma,
+lietutiņš lija, tik lija un lija.
+
+doma bargā tā arī nesadzīja,
+vientiesim rūpēja tik vilnas dzija.
+izadīja, uzadīja, izārdīja un paadija,
+vientiesim zvanija murga armija.
+
+lieciet vientiesi mierā,
+tam sāpju jau daudz,
+murgo tas par laikiem labiem,
+lieciet viņu lūdzu mierā." data-date="2024-05-01">
+            <h2 class="index-poem-title"><a href="vientuļais vientiesis.html">vientuļais vientiesis</a></h2>
+            <div class="poem-preview"><p>cilvēki, cilvēki,<br />
+visa visuma zinātāji.<br />
+ak, vientieši,<br />
+šīs pasaules neapzinātāji.</p>
+
+<p>vai kas cits mūs uztrauc,</p>
+<br><span class="ellipsis">...</span></div>
+            <a href="vientuļais vientiesis.html" class="read-more">Read more →</a>
+        </li>
+        
+        <li class="poem-card" data-title="impulss" data-content="es kā lietainais rudens vakars,
+nāku bargi ass,
+bet tā arī nesamircinu.
+
+kā lietus es nāku,
+bet dzīvei piešķiru mīkstumu,
+drebināties es sāku,
+bet vismaz sniedzu siltumu.
+
+sākas drudzis,
+bet gaisma izplūst no maniem spēkiem,
+izkliedz vienradzis,
+kas joņo apkārt apaviem lētiem.
+
+un man zole noplīst no zābaka,
+skumjās sēro sirds mana aprakta.
+
+un tad man cīga zobos un boksa maiss rokā,
+un katru sestdienas vakaru es piemetos lopā.
+
+un sēžu pliks pie kamīna koka,
+un uz sejas man guļ svešinieka roka.
+
+un uz pasaules naidu tā lemta.
+kā no koka slēpta,
+ir apslēpta šī sāpju rēta." data-date="2024-03-20">
+            <h2 class="index-poem-title"><a href="impulss.html">impulss</a></h2>
+            <div class="poem-preview"><p>es kā lietainais rudens vakars,<br />
+nāku bargi ass,<br />
+bet tā arī nesamircinu.</p>
+
+<p>kā lietus es nāku,<br />
+bet dzīvei piešķiru mīkstumu,</p>
+<br><span class="ellipsis">...</span></div>
+            <a href="impulss.html" class="read-more">Read more →</a>
+        </li>
+        
+        </ul>
+    </main>
+    <footer>
+        <p>© 2025 cafiro</p>
+    </footer>
+    <script>
+    const searchInput = document.getElementById('searchInput');
+    const sortSelect = document.getElementById('sortSelect');
+    const poemList = document.getElementById('poemList');
+    let poems = Array.from(poemList.children);
+
+    function filterAndSort() {
+        const query = searchInput.value.toLowerCase();
+        const sortOrder = sortSelect.value;
+        let filtered = poems.filter(li => {
+            const title = li.getAttribute('data-title').toLowerCase();
+            const content = li.getAttribute('data-content').toLowerCase();
+            const date = li.getAttribute('data-date');
+            return title.includes(query) || content.includes(query) || date.includes(query);
+        });
+        filtered.sort((a, b) => {
+            const dateA = a.getAttribute('data-date');
+            const dateB = b.getAttribute('data-date');
+            return sortOrder === 'asc' ? dateA.localeCompare(dateB) : dateB.localeCompare(dateA);
+        });
+        poemList.innerHTML = '';
+        filtered.forEach(li => poemList.appendChild(li));
+    }
+
+    searchInput.addEventListener('input', filterAndSort);
+    sortSelect.addEventListener('change', filterAndSort);
+    </script>
+</body>
+</html>
