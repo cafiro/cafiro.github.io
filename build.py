@@ -10,6 +10,7 @@ OUTPUT_DIR = 'public'
 SITE_TITLE = "The Collective Archive Of cafiro"
 AUTHOR_NAME = "cafiro"
 ARTIST_NAME = "/cafiro/"
+POEMS_PER_PAGE = 5
 
 def generate_preview(poem_md_text, line_limit=6):
     lines = poem_md_text.strip().split('\n')
@@ -125,6 +126,35 @@ POEM_TEMPLATE = """
 </html>
 """
 
+def generate_pagination_links(current_page, num_pages):
+    """Generates HTML for pagination links."""
+    links = '<div class="pagination-links">'
+
+    # Previous link
+    if current_page > 0:
+        prev_page_url = 'index.html' if current_page == 1 else f'page{current_page}.html'
+        links += f'<a href="{prev_page_url}" class="prev-next">« Previous</a>'
+    else:
+        links += '<span class="prev-next disabled">« Previous</span>'
+
+    # Page number links
+    for i in range(num_pages):
+        page_url = 'index.html' if i == 0 else f'page{i + 1}.html'
+        if i == current_page:
+            links += f'<span class="page-number current">{i + 1}</span>'
+        else:
+            links += f'<a href="{page_url}" class="page-number">{i + 1}</a>'
+
+    # Next link
+    if current_page < num_pages - 1:
+        next_page_url = f'page{current_page + 2}.html'
+        links += f'<a href="{next_page_url}" class="prev-next">Next »</a>'
+    else:
+        links += '<span class="prev-next disabled">Next »</span>'
+
+    links += '</div>'
+    return links
+
 # --- Build Logic ---
 def build_site():
     print("Starting site build...")
@@ -151,6 +181,7 @@ def build_site():
 
     poems_data.sort(key=lambda p: p['sort_date'], reverse=True)
 
+    # Build individual poem pages
     for poem in poems_data:
         page_content = POEM_TEMPLATE.format(
             title=poem.get('title', 'Untitled'),
@@ -164,25 +195,41 @@ def build_site():
             f.write(page_content)
         print(f"  - Built page for: {poem.get('title', 'Untitled')}")
 
-    poem_links_html = ""
-    for poem in poems_data:
-        clean_text = strip_html_tags(poem['full_content']).replace('"', "'")
-        poem_links_html += f"""
-        <li class="poem-card" data-title="{poem['title']}" data-content="{clean_text}" data-date="{poem['sort_date']}">
-            <h2 class="index-poem-title"><a href="{poem['filename']}">{poem['title']}</a></h2>
-            <div class="poem-preview">{poem['preview_content']}</div>
-            <a href="{poem['filename']}" class="read-more">Read more →</a>
+    # Build paginated index pages
+    num_pages = (len(poems_data) + POEMS_PER_PAGE - 1) // POEMS_PER_PAGE
+    for page_num in range(num_pages):
+        start_index = page_num * POEMS_PER_PAGE
+        end_index = start_index + POEMS_PER_PAGE
+        page_poems = poems_data[start_index:end_index]
+
+        poem_links_html = ""
+        for poem in page_poems:
+            clean_text = strip_html_tags(poem['full_content']).replace('"', "'")
+            poem_links_html += f"""
+        <li class=\"poem-card\" data-title=\"{poem['title']}\" data-content=\"{clean_text}\" data-date=\"{poem['sort_date']}\">
+            <h2 class=\"index-poem-title\"><a href=\"{poem['filename']}\">{poem['title']}</a></h2>
+            <div class=\"poem-preview\">{poem['preview_content']}</div>
+            <a href=\"{poem['filename']}\" class=\"read-more\">Read more →</a>
         </li>
         """
 
-    index_content = INDEX_TEMPLATE.format(
-        site_title=SITE_TITLE,
-        author_name=AUTHOR_NAME,
-        poem_links=poem_links_html
-    )
-    with open(os.path.join(OUTPUT_DIR, 'index.html'), 'w', encoding='utf-8') as f:
-        f.write(index_content)
-    print("  - Built index.html")
+        pagination_html = generate_pagination_links(page_num, num_pages)
+
+        index_content = INDEX_TEMPLATE.format(
+            site_title=SITE_TITLE,
+            author_name=AUTHOR_NAME,
+            poem_links=poem_links_html,
+            pagination_links=pagination_html
+        )
+
+        if page_num == 0:
+            index_filename = 'index.html'
+        else:
+            index_filename = f'page{page_num + 1}.html'
+
+        with open(os.path.join(OUTPUT_DIR, index_filename), 'w', encoding='utf-8') as f:
+            f.write(index_content)
+        print(f"  - Built index page: {index_filename}")
 
     if os.path.exists('style.css'):
         os.system(f'cp style.css {os.path.join(OUTPUT_DIR, "style.css")}')

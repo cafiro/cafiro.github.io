@@ -135,3 +135,32 @@ footer { text-align: center; padding: 20px; margin-top: 60px; font-size: 0.9em; 
 .artist-name, .date-block { text-align: left; }
 .artist-name { font-style: italic; color: #555; margin-bottom: 5px; font-size: 1.1rem; }
 .date-block { font-family: 'Lora', serif; font-size: 1rem; color: #666; margin: 0; white-space: pre-wrap; }
+
+
+/* --- Pagination --- */
+.pagination {
+    text-align: center;
+    margin-top: 40px;
+}
+.pagination-links a, .pagination-links span {
+    display: inline-block;
+    padding: 8px 16px;
+    margin: 0 4px;
+    border: 1px solid #ddd;
+    color: #8B4513;
+    text-decoration: none;
+    border-radius: 4px;
+    font-family: 'Inter', sans-serif;
+}
+.pagination-links a:hover {
+    background-color: #f0f0f0;
+}
+.pagination-links .current {
+    background-color: #8B4513;
+    color: white;
+    border-color: #8B4513;
+}
+.pagination-links .disabled {
+    color: #ccc;
+    pointer-events: none;
+}
