@@ -128,6 +128,10 @@ POEM_TEMPLATE = """
 
 def generate_pagination_links(current_page, num_pages):
     """Generates HTML for pagination links."""
+    # Don't show pagination if there's only one page
+    if num_pages <= 1:
+        return ""
+
     links = '<div class="pagination-links">'
 
     # Previous link
@@ -154,6 +158,7 @@ def generate_pagination_links(current_page, num_pages):
 
     links += '</div>'
     return links
+
 
 # --- Build Logic ---
 def build_site():
