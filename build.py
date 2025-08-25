@@ -1,194 +1,171 @@
 import os
-import markdown2
-import yaml
-import re
-from html import unescape
+from jinja2 import Environment, FileSystemLoader
 
 # --- Configuration ---
-POEMS_DIR = '_poems'
-OUTPUT_DIR = 'public'
-SITE_TITLE = "The Collective Archive Of cafiro"
-AUTHOR_NAME = "cafiro"
-ARTIST_NAME = "/cafiro/"
+SITE_NAME = "Cafiro's Poems"
+POEMS_PER_PAGE = 5
+OUTPUT_DIR = "docs"  # Changed from 'public' to 'docs' for GitHub Pages
+POEMS_DIR = "poems"
 
-def generate_preview(poem_md_text, line_limit=6):
-    lines = poem_md_text.strip().split('\n')
-    preview_lines = lines[:line_limit]
-    preview_md = '\n'.join(preview_lines)
-    preview_html = markdown2.markdown(preview_md, extras=["break-on-newline"])
-    if len(lines) > line_limit:
-        preview_html += '<br><span class="ellipsis">...</span>'
-    return preview_html
+# --- Data Loading ---
+def get_poems():
+    """Reads all poem files and returns them as a list of dictionaries."""
+    poems = []
+    for filename in sorted(os.listdir(POEMS_DIR), reverse=True):
+        if filename.endswith(".txt"):
+            filepath = os.path.join(POEMS_DIR, filename)
+            with open(filepath, "r", encoding="utf-8") as f:
+                lines = f.readlines()
+                title = lines[0].strip()
+                content = "".join(lines[1:]).strip()
+                slug = os.path.splitext(filename)[0]
+                poems.append({"title": title, "content": content, "slug": slug})
+    return poems
 
-def get_sortable_date(date_string):
-    match = re.search(r'\d{4}-\d{2}-\d{2}', str(date_string))
-    return match.group(0) if match else '1970-01-01'
+# --- HTML Generation ---
+def generate_site():
+    """Generates the static HTML site."""
+    poems = get_poems()
+    env = Environment(loader=FileSystemLoader("templates"))
 
-def strip_html_tags(html):
-    text = re.sub('<[^<]+?>', '', html)
-    return unescape(text).strip()
+    # Create output directory if it doesn't exist
+    if not os.path.exists(OUTPUT_DIR):
+        os.makedirs(OUTPUT_DIR)
 
-# --- HTML Templates ---
-INDEX_TEMPLATE = """
-<!DOCTYPE html>
+    # --- Generate Home/Index Pages (with Pagination) ---
+    template = env.get_template("index.html")
+    total_poems = len(poems)
+    num_pages = (total_poems + POEMS_PER_PAGE - 1) // POEMS_PER_PAGE
+
+    for page_num in range(num_pages):
+        start_index = page_num * POEMS_PER_PAGE
+        end_index = start_index + POEMS_PER_PAGE
+        page_poems = poems[start_index:end_index]
+
+        pagination = {
+            "page": page_num + 1,
+            "total_pages": num_pages,
+            "has_prev": page_num > 0,
+            "prev_num": page_num,
+            "has_next": page_num < num_pages - 1,
+            "next_num": page_num + 2,
+        }
+
+        # For the first page, the output is index.html
+        if page_num == 0:
+            output_path = os.path.join(OUTPUT_DIR, "index.html")
+        else:
+            page_dir = os.path.join(OUTPUT_DIR, f"page{page_num + 1}")
+            if not os.path.exists(page_dir):
+                os.makedirs(page_dir)
+            output_path = os.path.join(page_dir, "index.html")
+            
+        with open(output_path, "w", encoding="utf-8") as f:
+            f.write(template.render(
+                site_name=SITE_NAME,
+                poems=page_poems,
+                pagination=pagination
+            ))
+
+    # --- Generate Individual Poem Pages ---
+    poem_template = env.get_template("poem.html")
+    poems_output_dir = os.path.join(OUTPUT_DIR, "poems")
+    if not os.path.exists(poems_output_dir):
+        os.makedirs(poems_output_dir)
+
+    for poem in poems:
+        output_path = os.path.join(poems_output_dir, f"{poem['slug']}.html")
+        with open(output_path, "w", encoding="utf-8") as f:
+            f.write(poem_template.render(
+                site_name=SITE_NAME,
+                poem=poem
+            ))
+
+    print("Site generated successfully!")
+
+# --- Main Execution ---
+if __name__ == "__main__":
+    # You'll need to create a 'templates' directory with the following files:
+    
+    # --- templates/base.html ---
+    if not os.path.exists("templates"):
+        os.makedirs("templates")
+        
+    with open("templates/base.html", "w", encoding="utf-8") as f:
+        f.write("""<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{site_title}</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Lora:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <title>{{ site_name }}</title>
     <style>
-        .search-sort-bar {{ display: flex; gap: 1em; margin-bottom: 2em; }}
-        .search-input {{ flex: 1; padding: 0.5em; font-size: 1em; }}
-        .sort-select {{ padding: 0.5em; font-size: 1em; }}
+        body { font-family: sans-serif; max-width: 800px; margin: 40px auto; padding: 0 20px; background-color: #fdfdfd; color: #333; }
+        header { text-align: center; margin-bottom: 40px; }
+        header h1 { margin: 0; }
+        a { color: #007bff; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .poem-list-item { margin-bottom: 30px; border-bottom: 1px solid #eee; padding-bottom: 20px; }
+        .poem-list-item h2 { margin-top: 0; }
+        .poem-content { white-space: pre-wrap; line-height: 1.6; }
+        .pagination { text-align: center; margin-top: 40px; }
+        .pagination a { margin: 0 10px; padding: 8px 16px; border: 1px solid #ddd; border-radius: 4px; }
+        .poem-container { background-color: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+        .back-link { display: block; margin-bottom: 20px; }
     </style>
 </head>
 <body>
     <header>
-        <h1>{site_title}</h1>
+        <h1><a href="/">{{ site_name }}</a></h1>
     </header>
     <main>
-        <div class="search-sort-bar">
-            <input type="text" id="searchInput" class="search-input" placeholder="Search by name, content, or date...">
-            <select id="sortSelect" class="sort-select">
-                <option value="desc">Date: Newest First</option>
-                <option value="asc">Date: Oldest First</option>
-            </select>
-        </div>
-        <ul id="poemList" class="poem-list">
-            {poem_links}
-        </ul>
+        {% block content %}{% endblock %}
     </main>
-    <footer>
-        <p>© 2025 {author_name}</p>
-    </footer>
-    <script>
-    const searchInput = document.getElementById('searchInput');
-    const sortSelect = document.getElementById('sortSelect');
-    const poemList = document.getElementById('poemList');
-    let poems = Array.from(poemList.children);
-
-    function filterAndSort() {{
-        const query = searchInput.value.toLowerCase();
-        const sortOrder = sortSelect.value;
-        let filtered = poems.filter(li => {{
-            const title = li.getAttribute('data-title').toLowerCase();
-            const content = li.getAttribute('data-content').toLowerCase();
-            const date = li.getAttribute('data-date');
-            return title.includes(query) || content.includes(query) || date.includes(query);
-        }});
-        filtered.sort((a, b) => {{
-            const dateA = a.getAttribute('data-date');
-            const dateB = b.getAttribute('data-date');
-            return sortOrder === 'asc' ? dateA.localeCompare(dateB) : dateB.localeCompare(dateA);
-        }});
-        poemList.innerHTML = '';
-        filtered.forEach(li => poemList.appendChild(li));
-    }}
-
-    searchInput.addEventListener('input', filterAndSort);
-    sortSelect.addEventListener('change', filterAndSort);
-    </script>
 </body>
-</html>
-"""
+</html>""")
 
-POEM_TEMPLATE = """
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{title} | {site_title}</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Lora:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-</head>
-<body>
-    <main class="poem-container">
-        <a href="index.html" class="back-link">← Back to The Archive</a>
-        <h1 class="poem-title">{title}</h1>
-        <div class="poem-body">
-            {content}
+    # --- templates/index.html ---
+    with open("templates/index.html", "w", encoding="utf-8") as f:
+        f.write("""{% extends "base.html" %}
+{% block content %}
+    {% for poem in poems %}
+    <article class="poem-list-item">
+        <h2><a href="/poems/{{ poem.slug }}.html">{{ poem.title }}</a></h2>
+        <div class="poem-content">
+            {{ poem.content.split('\\n')[:4]|join('\\n') }}...
         </div>
-        <p class="artist-name">{artist_name}</p>
-        <pre class="date-block">{date}</pre>
-    </main>
-    <footer>
-        <p>© 2025 {author_name}</p>
-    </footer>
-</body>
-</html>
-"""
+    </article>
+    {% endfor %}
 
-# --- Build Logic ---
-def build_site():
-    print("Starting site build...")
-    poems_data = []
+    {% if pagination and pagination.total_pages > 1 %}
+    <nav class="pagination">
+        {% if pagination.has_prev %}
+            {% if pagination.prev_num == 1 %}
+                <a href="/">&laquo; Previous</a>
+            {% else %}
+                <a href="/page{{ pagination.prev_num }}/">&laquo; Previous</a>
+            {% endif %}
+        {% endif %}
+        
+        <span>Page {{ pagination.page }} of {{ pagination.total_pages }}</span>
 
-    if not os.path.exists(OUTPUT_DIR):
-        os.makedirs(OUTPUT_DIR)
+        {% if pagination.has_next %}
+            <a href="/page{{ pagination.next_num }}/">Next &raquo;</a>
+        {% endif %}
+    </nav>
+    {% endif %}
+{% endblock %}""")
 
-    for filename in os.listdir(POEMS_DIR):
-        if filename.endswith('.md'):
-            filepath = os.path.join(POEMS_DIR, filename)
-            with open(filepath, 'r', encoding='utf-8') as f:
-                content = f.read()
-                parts = content.split('---')
-                if len(parts) >= 3:
-                    metadata = yaml.safe_load(parts[1])
-                    poem_md = '---'.join(parts[2:]).strip()
-                    poem_html = markdown2.markdown(poem_md, extras=["break-on-newline"])
-                    metadata['full_content'] = poem_html
-                    metadata['preview_content'] = generate_preview(poem_md)
-                    metadata['filename'] = filename.replace('.md', '.html')
-                    metadata['sort_date'] = get_sortable_date(metadata.get('date', ''))
-                    poems_data.append(metadata)
-
-    poems_data.sort(key=lambda p: p['sort_date'], reverse=True)
-
-    for poem in poems_data:
-        page_content = POEM_TEMPLATE.format(
-            title=poem.get('title', 'Untitled'),
-            content=poem.get('full_content', ''),
-            artist_name=ARTIST_NAME,
-            date=poem.get('date', ''),
-            site_title=SITE_TITLE,
-            author_name=AUTHOR_NAME
-        )
-        with open(os.path.join(OUTPUT_DIR, poem['filename']), 'w', encoding='utf-8') as f:
-            f.write(page_content)
-        print(f"  - Built page for: {poem.get('title', 'Untitled')}")
-
-    poem_links_html = ""
-    for poem in poems_data:
-        clean_text = strip_html_tags(poem['full_content']).replace('"', "'")
-        poem_links_html += f"""
-        <li class="poem-card" data-title="{poem['title']}" data-content="{clean_text}" data-date="{poem['sort_date']}">
-            <h2 class="index-poem-title"><a href="{poem['filename']}">{poem['title']}</a></h2>
-            <div class="poem-preview">{poem['preview_content']}</div>
-            <a href="{poem['filename']}" class="read-more">Read more →</a>
-        </li>
-        """
-
-    index_content = INDEX_TEMPLATE.format(
-        site_title=SITE_TITLE,
-        author_name=AUTHOR_NAME,
-        poem_links=poem_links_html
-    )
-    with open(os.path.join(OUTPUT_DIR, 'index.html'), 'w', encoding='utf-8') as f:
-        f.write(index_content)
-    print("  - Built index.html")
-
-    if os.path.exists('style.css'):
-        os.system(f'cp style.css {os.path.join(OUTPUT_DIR, "style.css")}')
-        print("  - Copied style.css")
-
-    print("Site build complete!")
-
-if __name__ == '__main__':
-    build_site()
+    # --- templates/poem.html ---
+    with open("templates/poem.html", "w", encoding="utf-8") as f:
+        f.write("""{% extends "base.html" %}
+{% block content %}
+    <a href="/" class="back-link">&larr; Back to all poems</a>
+    <article class="poem-container">
+        <h2>{{ poem.title }}</h2>
+        <div class="poem-content">
+            {{ poem.content }}
+        </div>
+    </article>
+{% endblock %}""")
+    
+    generate_site()
