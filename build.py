@@ -185,12 +185,16 @@ def build_site():
                     metadata['full_content'] = poem_html
                     metadata['preview_content'] = generate_preview(poem_md)
                     metadata['filename'] = filename.replace('.md', '.html')
-                    metadata['sort_date'] = get_sortable_date(metadata.get('date', ''))
+                    
+                    # Ensure 'date' is a string for serialization
+                    date_str = get_sortable_date(metadata.get('date', ''))
+                    metadata['sort_date'] = date_str
                     poems_data.append(metadata)
+                    
                     poems_index.append({
                         'title': metadata.get('title', 'Untitled'),
                         'preview': metadata['preview_content'],
-                        'date': metadata.get('date', ''),
+                        'date': date_str,  # Store date as string
                         'filename': metadata['filename']
                     })
 
@@ -256,3 +260,4 @@ def build_site():
 
 if __name__ == '__main__':
     build_site()
+
