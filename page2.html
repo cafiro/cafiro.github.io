@@ -13,6 +13,10 @@
         .search-sort-bar { display: flex; gap: 1em; margin-bottom: 2em; }
         .search-input { flex: 1; padding: 0.5em; font-size: 1em; }
         .sort-select { padding: 0.5em; font-size: 1em; }
+        .pagination-links { display:flex; gap: .5rem; flex-wrap: wrap; justify-content:center; margin: 2rem 0; }
+        .pagination-links a, .pagination-links span { padding: .4rem .6rem; border: 1px solid #ccc; border-radius: 6px; text-decoration: none; }
+        .pagination-links .current { font-weight: 700; background: #f5f5f5; }
+        .pagination-links .disabled { opacity: .5; cursor: not-allowed; }
     </style>
 </head>
 <body>
@@ -27,61 +31,67 @@
                 <option value="asc">Date: Oldest First</option>
             </select>
         </div>
+
         <ul id="poemList" class="poem-list">
             
-        <li class="poem-card" data-title="būtība" data-content="rodas reiz jautājums
-vai cilvēks ir tā rīcība
-vai rīcība ir zaudējums
-vai tā ir tava būtība
+        <li class="poem-card" data-title="nepareizi dzimušie" data-content="kleptomāņi ārprātīgie,
+lielveikali nolemtie.
+siro zemi mantkārīgie –
+nepareizi dzimušie.
 
-citu domās, esi velns
-manuprāt tikai klauns
-iekšēji tu dziļi melns
-tev pašam vai kauns
+pirmā rindā garie nagi,
+otrā tie, kas nemāk labi.
+restes kļuva viņu māja
+ieslodzītiem.
 
-viena kļūme bedri rok
-tavu vērti projām met
-tagad laiks - jānosmok
-visi vienmēr tikai pret
+ieraudzīju skaistu skatu,
+es pat dotu vienu latu,
+tikai lai to atkārtotu,
+atmiņā lai iekārtotu.
 
-vientulīgā apātijā
-skumji krāmē koferi
-raudu upē bezgalīgā
-meklē glupu šoferi
+džeka roka devas lejā,
+skatīdamies tieši sejā,
+izķeksēja iekrājumus,
+ieraudzījis raibumus.
 
-šoferi tu neatrodi
-koferi tu nekrāmē
-apkārtni tu nesaproti
-tu asariņu neslāpē
+ātrā solī devās projām,
+cik vien ātri varēdams,
+acītiņām lielām, spožām,
+pie sevis klusi sacīdams:
 
-spogulī tu sevi vēro
-bet tur pretī skatās svešs
-kas par velnu, kas par klaunu
-šis bezjēgas, tukšais ķermenis
+&quot;kas gan mani ļoti kāro,
+lai es sevi iecienītu?
+gribu zināt vārdu dārgo,
+lai man dotu cerību.
 
-tukšums tavā krūšu kurvī
-plešas plašāk, dziļāk, audz
-katra doma asa kā nazis
-katra elpa tevi žņaudz
+es gribu tikai gribu
+just, ka mirklis pieder man,
+ka šī lieta, spožā, gludā,
+manu tukšumu reiz klan.&quot;
 
-klusums ausīs skaļāk kliedz
-nekā pūlis ielās trauc
-tu jau sen vairs neko nedod
-tikai iekšēji sev kauc
+aiz stūra elpu atguva,
+sirds tam krūtīs sitās traki.
+saujā dega laupījums,
+auksti, asi, velnišķīgi.
 
-un tas jautājums, kas sākās,
-paliek trūdam ar smagu krustu.
-tu pats esi atbilde vāja,
-kas bez skaņas brūk ar pūstu." data-date="2025-06-07">
-            <h2 class="index-poem-title"><a href="būtība.html">būtība</a></h2>
-            <div class="poem-preview"><p>rodas reiz jautājums<br />
-vai cilvēks ir tā rīcība<br />
-vai rīcība ir zaudējums<br />
-vai tā ir tava būtība</p>
+un es stāvu, vērotājs,
+starp tiem plauktiem, gaismas stariem.
+viņš bija zaglis, es – radītājs
+stāstam par tiem, kas ir gariem
 
-<p>citu domās, esi velns  </p>
+gariem pirkstiem, tukšām sirdīm,
+kas caur veikaliem iet klusi,
+meklējot starp lietu mirdziem
+savu pazudušo pusi." data-date="2025-06-07">
+            <h2 class="index-poem-title"><a href="nepareizi dzimušie.html">nepareizi dzimušie</a></h2>
+            <div class="poem-preview"><p>kleptomāņi ārprātīgie,<br />
+lielveikali nolemtie.<br />
+siro zemi mantkārīgie –<br />
+nepareizi dzimušie.</p>
+
+<p>pirmā rindā garie nagi,  </p>
 <br><span class="ellipsis">...</span></div>
-            <a href="būtība.html" class="read-more">Read more →</a>
+            <a href="nepareizi dzimušie.html" class="read-more">Read more →</a>
         </li>
         
         <li class="poem-card" data-title="ieraudzīju" data-content="ieraudzīju kamieli,
@@ -209,10 +219,10 @@ ziņkārību kasa</p>
             <a href="fantāzija.html" class="read-more">Read more →</a>
         </li>
         
-        <li class="poem-card" data-title="dzejolītis, par ārkārtīgi labu laika pavadīšanu" data-content="alejāsi'
+        <li class="poem-card" data-title="dzejolītis, par ārkārtīgi labu laika pavadīšanu" data-content="alejāsi&#x27;
 būšu, bušu
 klibs gar zemi
-staigādam'
+staigādam&#x27;
 2x
 
 došu roku
@@ -224,11 +234,11 @@ trāpīsies
 vai cik labi
 jūtu, jūtu
 pazaudēto
-vakariņ'
+vakariņ&#x27;
 2x
 
-man bij' labi
-klētiņāi'
+man bij&#x27; labi
+klētiņāi&#x27;
 gulēt plikam
 lādītē
 2x
@@ -236,7 +246,7 @@ lādītē
 cik bija laba
 rīta rasa
 kas man drēbi
-mitrināj'
+mitrināj&#x27;
 2x
 
 vai cik slikta
@@ -246,7 +256,7 @@ parādās
 2x
 
 vēl sliktākā
-dieniņāi'
+dieniņāi&#x27;
 kur nav alus
 rociņā
 2x
@@ -260,7 +270,7 @@ blusu ķert
 un no rīta
 nezināti
 ko es vakar
-sadarīj'
+sadarīj&#x27;
 2x" data-date="2025-04-04">
             <h2 class="index-poem-title"><a href="dzejolītis par ārkārtīgi labu laika pavadīšanu.html">dzejolītis, par ārkārtīgi labu laika pavadīšanu</a></h2>
             <div class="poem-preview"><p>alejāsi'<br />
@@ -322,6 +332,8 @@ ielūko sirsniņā</p>
         </li>
         
         </ul>
+
+        <div class="pagination-links"><a href="index.html" class="prev-next">« Previous</a><a href="index.html" class="page-number">1</a><span class="page-number current">2</span><a href="page3.html" class="page-number">3</a><a href="page4.html" class="page-number">4</a><a href="page5.html" class="page-number">5</a><a href="page6.html" class="page-number">6</a><a href="page3.html" class="prev-next">Next »</a></div>
     </main>
     <footer>
         <p>© 2025 cafiro</p>

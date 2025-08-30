@@ -13,6 +13,10 @@
         .search-sort-bar { display: flex; gap: 1em; margin-bottom: 2em; }
         .search-input { flex: 1; padding: 0.5em; font-size: 1em; }
         .sort-select { padding: 0.5em; font-size: 1em; }
+        .pagination-links { display:flex; gap: .5rem; flex-wrap: wrap; justify-content:center; margin: 2rem 0; }
+        .pagination-links a, .pagination-links span { padding: .4rem .6rem; border: 1px solid #ccc; border-radius: 6px; text-decoration: none; }
+        .pagination-links .current { font-weight: 700; background: #f5f5f5; }
+        .pagination-links .disabled { opacity: .5; cursor: not-allowed; }
     </style>
 </head>
 <body>
@@ -27,6 +31,7 @@
                 <option value="asc">Date: Oldest First</option>
             </select>
         </div>
+
         <ul id="poemList" class="poem-list">
             
         <li class="poem-card" data-title="nekā nav" data-content="sit pulksten 6.30, enerģijas nekur nav.
@@ -58,6 +63,31 @@ ej pēc smēķa, bet cigarešu nav.</p>
 <p>bļeģ, bļeģ, nekā nav, nekā nekad nav.</p>
 <br><span class="ellipsis">...</span></div>
             <a href="nekā nav.html" class="read-more">Read more →</a>
+        </li>
+        
+        <li class="poem-card" data-title="dzīvības ūdens" data-content="visi dzīvi būdami,
+plūstam mēs ar ūdeni.
+nāk, nu mūsu skaistais brālis,
+nu, alkatīgs šis mazais cālis.
+
+cālim priekšā smagas dienas,
+apkārt tam liktas smagas sienas.
+sienu biezums nemaz nav tievs,
+cauri sienai dauza kāds krievs.
+
+tālumā atskan kaut kas skaļš,
+gar acīm sāk palikt viegli zaļš.
+nekad neatstāj sevi vienu,
+lūdzies vēl vienu pilienu." data-date="2025-06-19">
+            <h2 class="index-poem-title"><a href="dzīvības ūdens.html">dzīvības ūdens</a></h2>
+            <div class="poem-preview"><p>visi dzīvi būdami,<br />
+plūstam mēs ar ūdeni.<br />
+nāk, nu mūsu skaistais brālis,<br />
+nu, alkatīgs šis mazais cālis.</p>
+
+<p>cālim priekšā smagas dienas,</p>
+<br><span class="ellipsis">...</span></div>
+            <a href="dzīvības ūdens.html" class="read-more">Read more →</a>
         </li>
         
         <li class="poem-card" data-title="prostitūta" data-content="dabas prostitūta spindz
@@ -113,31 +143,6 @@ dižciltīgas mūsu bites</p>
 <p>salds ir to produkts</p>
 <br><span class="ellipsis">...</span></div>
             <a href="prostitūta.html" class="read-more">Read more →</a>
-        </li>
-        
-        <li class="poem-card" data-title="dzīvības ūdens" data-content="visi dzīvi būdami,
-plūstam mēs ar ūdeni.
-nāk, nu mūsu skaistais brālis,
-nu, alkatīgs šis mazais cālis.
-
-cālim priekšā smagas dienas,
-apkārt tam liktas smagas sienas.
-sienu biezums nemaz nav tievs,
-cauri sienai dauza kāds krievs.
-
-tālumā atskan kaut kas skaļš,
-gar acīm sāk palikt viegli zaļš.
-nekad neatstāj sevi vienu,
-lūdzies vēl vienu pilienu." data-date="2025-06-19">
-            <h2 class="index-poem-title"><a href="dzīvības ūdens.html">dzīvības ūdens</a></h2>
-            <div class="poem-preview"><p>visi dzīvi būdami,<br />
-plūstam mēs ar ūdeni.<br />
-nāk, nu mūsu skaistais brālis,<br />
-nu, alkatīgs šis mazais cālis.</p>
-
-<p>cālim priekšā smagas dienas,</p>
-<br><span class="ellipsis">...</span></div>
-            <a href="dzīvības ūdens.html" class="read-more">Read more →</a>
         </li>
         
         <li class="poem-card" data-title="bet es" data-content="esmu kā kukainis [zēns]
@@ -220,67 +225,64 @@ zemes dziļumos<br />
             <a href="bet es.html" class="read-more">Read more →</a>
         </li>
         
-        <li class="poem-card" data-title="nepareizi dzimušie" data-content="kleptomāņi ārprātīgie,
-lielveikali nolemtie.
-siro zemi mantkārīgie –
-nepareizi dzimušie.
+        <li class="poem-card" data-title="būtība" data-content="rodas reiz jautājums
+vai cilvēks ir tā rīcība
+vai rīcība ir zaudējums
+vai tā ir tava būtība
 
-pirmā rindā garie nagi,
-otrā tie, kas nemāk labi.
-restes kļuva viņu māja
-ieslodzītiem.
+citu domās, esi velns
+manuprāt tikai klauns
+iekšēji tu dziļi melns
+tev pašam vai kauns
 
-ieraudzīju skaistu skatu,
-es pat dotu vienu latu,
-tikai lai to atkārtotu,
-atmiņā lai iekārtotu.
+viena kļūme bedri rok
+tavu vērti projām met
+tagad laiks - jānosmok
+visi vienmēr tikai pret
 
-džeka roka devas lejā,
-skatīdamies tieši sejā,
-izķeksēja iekrājumus,
-ieraudzījis raibumus.
+vientulīgā apātijā
+skumji krāmē koferi
+raudu upē bezgalīgā
+meklē glupu šoferi
 
-ātrā solī devās projām,
-cik vien ātri varēdams,
-acītiņām lielām, spožām,
-pie sevis klusi sacīdams:
+šoferi tu neatrodi
+koferi tu nekrāmē
+apkārtni tu nesaproti
+tu asariņu neslāpē
 
-'kas gan mani ļoti kāro,
-lai es sevi iecienītu?
-gribu zināt vārdu dārgo,
-lai man dotu cerību.
+spogulī tu sevi vēro
+bet tur pretī skatās svešs
+kas par velnu, kas par klaunu
+šis bezjēgas, tukšais ķermenis
 
-es gribu tikai gribu
-just, ka mirklis pieder man,
-ka šī lieta, spožā, gludā,
-manu tukšumu reiz klan.'
+tukšums tavā krūšu kurvī
+plešas plašāk, dziļāk, audz
+katra doma asa kā nazis
+katra elpa tevi žņaudz
 
-aiz stūra elpu atguva,
-sirds tam krūtīs sitās traki.
-saujā dega laupījums,
-auksti, asi, velnišķīgi.
+klusums ausīs skaļāk kliedz
+nekā pūlis ielās trauc
+tu jau sen vairs neko nedod
+tikai iekšēji sev kauc
 
-un es stāvu, vērotājs,
-starp tiem plauktiem, gaismas stariem.
-viņš bija zaglis, es – radītājs
-stāstam par tiem, kas ir gariem
+un tas jautājums, kas sākās,
+paliek trūdam ar smagu krustu.
+tu pats esi atbilde vāja,
+kas bez skaņas brūk ar pūstu." data-date="2025-06-07">
+            <h2 class="index-poem-title"><a href="būtība.html">būtība</a></h2>
+            <div class="poem-preview"><p>rodas reiz jautājums<br />
+vai cilvēks ir tā rīcība<br />
+vai rīcība ir zaudējums<br />
+vai tā ir tava būtība</p>
 
-gariem pirkstiem, tukšām sirdīm,
-kas caur veikaliem iet klusi,
-meklējot starp lietu mirdziem
-savu pazudušo pusi." data-date="2025-06-07">
-            <h2 class="index-poem-title"><a href="nepareizi dzimušie.html">nepareizi dzimušie</a></h2>
-            <div class="poem-preview"><p>kleptomāņi ārprātīgie,<br />
-lielveikali nolemtie.<br />
-siro zemi mantkārīgie –<br />
-nepareizi dzimušie.</p>
-
-<p>pirmā rindā garie nagi,  </p>
+<p>citu domās, esi velns  </p>
 <br><span class="ellipsis">...</span></div>
-            <a href="nepareizi dzimušie.html" class="read-more">Read more →</a>
+            <a href="būtība.html" class="read-more">Read more →</a>
         </li>
         
         </ul>
+
+        <div class="pagination-links"><span class="prev-next disabled">« Previous</span><span class="page-number current">1</span><a href="page2.html" class="page-number">2</a><a href="page3.html" class="page-number">3</a><a href="page4.html" class="page-number">4</a><a href="page5.html" class="page-number">5</a><a href="page6.html" class="page-number">6</a><a href="page2.html" class="prev-next">Next »</a></div>
     </main>
     <footer>
         <p>© 2025 cafiro</p>
