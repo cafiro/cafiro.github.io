@@ -102,6 +102,7 @@ INDEX_TEMPLATE = """
 </body>
 </html>
 """
+
 POEM_TEMPLATE = """
 <!DOCTYPE html>
 <html lang="en">
@@ -158,6 +159,7 @@ POEM_TEMPLATE = """
             color: #888;
         }}
         .date-block {{
+            font-family: 'Lora', serif;
             font-size: 0.9rem;
             color: #ccc;
         }}
@@ -293,5 +295,3 @@ def build_site():
 
 if __name__ == "__main__":
     build_site()
-
-
