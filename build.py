@@ -109,51 +109,51 @@ POEM_TEMPLATE = """
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ title }}</title>
+  <title>{title}</title>
   <style>
-    body {
+    body {{
       margin: 0;
       padding: 2rem;
       font-family: 'Lora', serif;
       background-color: #fbfaf8; /* same background as archive */
       color: #222;
-    }
+    }}
 
-    a.back-link {
+    a.back-link {{
       position: fixed;
       top: 1rem;
       left: 1rem;
       text-decoration: none;
       font-size: 0.9rem;
       color: #555;
-    }
+    }}
 
-    .poem-container {
+    .poem-container {{
       max-width: 700px;
       margin: 5rem auto;
-    }
+    }}
 
-    h1.poem-title {
+    h1.poem-title {{
       font-size: 2rem;
       font-weight: bold;
       margin-bottom: 1.5rem;
       text-align: left; /* left aligned now */
-    }
+    }}
 
-    .poem-content {
+    .poem-content {{
       font-size: 1rem;
       line-height: 1.4; /* tighter line spacing */
       white-space: pre-line; /* keeps poem line breaks */
       text-align: left; /* left aligned now */
-    }
+    }}
   </style>
 </head>
 <body>
   <a href="../index.html" class="back-link">← Back to The Archive</a>
 
   <div class="poem-container">
-    <h1 class="poem-title">{{ title }}</h1>
-    <div class="poem-content">{{ content }}</div>
+    <h1 class="poem-title">{title}</h1>
+    <div class="poem-content">{content}</div>
   </div>
 </body>
 </html>
@@ -275,4 +275,5 @@ def build_site():
 
 if __name__ == "__main__":
     build_site()
+
 
