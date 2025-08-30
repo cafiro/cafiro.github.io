@@ -6,7 +6,7 @@ from html import unescape, escape
 
 # --- Configuration ---
 POEMS_DIR = '_poems'
-OUTPUT_DIR = 'docs'  # GitHub Pages can publish from /docs on the default branch
+OUTPUT_DIR = 'public'
 SITE_TITLE = "The Collective Archive Of cafiro"
 AUTHOR_NAME = "cafiro"
 ARTIST_NAME = "/cafiro/"
@@ -266,3 +266,4 @@ def build_site():
 
 if __name__ == '__main__':
     build_site()
+
