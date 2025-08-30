@@ -7,16 +7,26 @@ body {
     margin: 0;
     padding: 0;
 }
+
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Inter', sans-serif;
 }
+
 main {
     max-width: 800px;
     margin: 40px auto;
     padding: 0 20px;
 }
-a { color: #8B4513; text-decoration: none; transition: color 0.2s; }
-a:hover { color: #5a2d0c; }
+
+a {
+    color: #8B4513;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+a:hover {
+    color: #5a2d0c;
+}
 
 /* --- Header & Footer --- */
 header {
@@ -24,75 +34,47 @@ header {
     padding: 30px 20px 20px;
     margin-bottom: 50px;
 }
-header h1 { margin: 0; font-size: 2.8em; font-weight: 700; color: #1a1a1a; letter-spacing: 0.5px; }
-footer { text-align: center; padding: 20px; margin-top: 60px; font-size: 0.9em; color: #888; border-top: 1px solid #e5e3e0; }
 
-/* --- Archive Page - Poem Preview Cards --- */
-.poem-list {
-    list-style: none;
-    padding: 0;
-}
-.poem-card {
-    background-color: #fff;
-    /* UPDATED: Increased padding for more margin space */
-    padding: 40px 45px;
-    margin-bottom: 25px;
-    border: 1px solid #e5e3e0;
-    border-radius: 8px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.02);
-}
-.index-poem-title {
-    margin: 0 0 20px 0; /* Increased bottom margin */
-    font-size: 1.8em;
+header h1 {
+    margin: 0;
+    font-size: 2.8em;
     font-weight: 700;
-}
-.index-poem-title a {
     color: #1a1a1a;
-    text-decoration: none;
+    letter-spacing: 0.5px;
 }
-.index-poem-title a:hover {
-    color: #000;
+
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 60px;
+    font-size: 0.9em;
+    color: #888;
+    border-top: 1px solid #e5e3e0;
 }
-.poem-preview {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    color: #444;
-    margin: 0; /* ← Removed bottom margin */
+
+/* --- Individual Poem Page Styles --- */
+body {
+    background-color: #fbfaf8;
 }
-.read-more {
-    font-family: 'Inter', sans-serif;
-    font-weight: 700;
-    font-size: 1rem;
-    color: #8B4513;
-}
-.read-more:hover {
-    color: #5a2d0c;
-}
-.ellipsis {
-    display: inline-block;
-    margin-top: 0.3em;
-}
+
 .poem-container {
-    max-width: 720px;
+    max-width: 800px;
     margin: 60px auto;
-    padding: 40px 30px;
-    background-color: #fff;
-    border-radius: 10px;
-    border: 1px solid #e5e3e0;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+    padding: 20px;
+    background-color: transparent;
+    text-align: center;
 }
 
 .poem-title {
-    font-size: 2em;
+    font-size: 2.5em;
     font-weight: 700;
     margin-bottom: 20px;
-    line-height: 1.3;
     color: #1a1a1a;
 }
 
 .poem-body {
-    font-size: 1.1rem;
-    line-height: 1.65;
+    font-size: 1.2rem;
+    line-height: 1.8;
     color: #333;
     margin-bottom: 30px;
     white-space: pre-line;
@@ -107,60 +89,21 @@ footer { text-align: center; padding: 20px; margin-top: 60px; font-size: 0.9em; 
 
 .date-block {
     font-family: 'Lora', serif;
-    font-size: 0.95rem;
-    color: #999;
+    font-size: 0.9rem;
+    color: #ccc;
     margin: 0;
     white-space: pre-wrap;
 }
 
 .back-link {
-    display: inline-block;
-    margin-bottom: 25px;
-    font-size: 0.95rem;
-    color: #8B4513;
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    font-size: 1.1rem;
     text-decoration: none;
+    color: #555;
 }
 
 .back-link:hover {
     color: #5a2d0c;
-}
-
-
-
-/* --- Individual Poem Page Styles (Unchanged) --- */
-.poem-container { padding: 20px 0; }
-.back-link { display: inline-block; margin-bottom: 50px; font-family: 'Inter', sans-serif; font-size: 1rem; color: #8B4513; }
-.poem-title { text-align: left; font-size: 2.6em; font-weight: 700; margin-bottom: 40px; color: #1a1a1a; }
-.poem-body { text-align: left; font-size: 1.2rem; line-height: 1.8; margin-bottom: 60px; white-space: pre-wrap; }
-.artist-name, .date-block { text-align: left; }
-.artist-name { font-style: italic; color: #555; margin-bottom: 5px; font-size: 1.1rem; }
-.date-block { font-family: 'Lora', serif; font-size: 1rem; color: #666; margin: 0; white-space: pre-wrap; }
-
-
-/* --- Pagination --- */
-.pagination {
-    text-align: center;
-    margin-top: 40px;
-}
-.pagination-links a, .pagination-links span {
-    display: inline-block;
-    padding: 8px 16px;
-    margin: 0 4px;
-    border: 1px solid #ddd;
-    color: #8B4513;
-    text-decoration: none;
-    border-radius: 4px;
-    font-family: 'Inter', sans-serif;
-}
-.pagination-links a:hover {
-    background-color: #f0f0f0;
-}
-.pagination-links .current {
-    background-color: #8B4513;
-    color: white;
-    border-color: #8B4513;
-}
-.pagination-links .disabled {
-    color: #ccc;
-    pointer-events: none;
 }
