@@ -115,7 +115,7 @@ POEM_TEMPLATE = """
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Lora:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <style>
-        body {
+        body {{
             font-family: 'Lora', serif;
             line-height: 1.7;
             color: #333333;
@@ -126,8 +126,8 @@ POEM_TEMPLATE = """
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-        }
-        .poem-container {
+        }}
+        .poem-container {{
             width: 80%;
             max-width: 800px;
             padding: 2rem;
@@ -135,35 +135,35 @@ POEM_TEMPLATE = """
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
             text-align: center;
-        }
-        .back-link {
+        }}
+        .back-link {{
             display: block;
             margin-bottom: 1.5rem;
             font-size: 1.1rem;
             text-decoration: none;
             color: #555;
-        }
-        .poem-title {
+        }}
+        .poem-title {{
             font-size: 2.5rem;
             font-weight: 700;
             margin-bottom: 1rem;
-        }
-        .poem-body {
+        }}
+        .poem-body {{
             font-size: 1.2rem;
             margin-bottom: 2rem;
-        }
-        .artist-name {
+        }}
+        .artist-name {{
             font-size: 1rem;
             color: #888;
-        }
-        .date-block {
+        }}
+        .date-block {{
             font-size: 0.9rem;
             color: #ccc;
-        }
-        footer {
+        }}
+        footer {{
             text-align: center;
             margin-top: 2rem;
-        }
+        }}
     </style>
 </head>
 <body>
@@ -299,3 +299,4 @@ def build_site():
 
 if __name__ == "__main__":
     build_site()
+
