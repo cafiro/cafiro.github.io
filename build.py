@@ -102,7 +102,6 @@ INDEX_TEMPLATE = """
 </body>
 </html>
 """
-
 POEM_TEMPLATE = """
 <!DOCTYPE html>
 <html lang="en">
@@ -123,34 +122,36 @@ POEM_TEMPLATE = """
             margin: 0;
             padding: 0;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
         }}
-        .poem-container {{
-            width: 80%;
-            max-width: 800px;
-            padding: 2rem;
-            background-color: white;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-            text-align: center;
-        }}
         .back-link {{
-            display: block;
-            margin-bottom: 1.5rem;
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
             font-size: 1.1rem;
             text-decoration: none;
             color: #555;
+        }}
+        .poem-container {{
+            width: 100%;
+            max-width: 800px;
+            padding: 2rem;
+            background-color: transparent;
+            text-align: center;
         }}
         .poem-title {{
             font-size: 2.5rem;
             font-weight: 700;
             margin-bottom: 1rem;
+            text-align: center;
         }}
         .poem-body {{
             font-size: 1.2rem;
             margin-bottom: 2rem;
+            text-align: center;
         }}
         .artist-name {{
             font-size: 1rem;
@@ -160,15 +161,11 @@ POEM_TEMPLATE = """
             font-size: 0.9rem;
             color: #ccc;
         }}
-        footer {{
-            text-align: center;
-            margin-top: 2rem;
-        }}
     </style>
 </head>
 <body>
+    <a href="index.html" class="back-link">← Back to The Archive</a>
     <main class="poem-container">
-        <a href="index.html" class="back-link">← Back to The Archive</a>
         <h1 class="poem-title">{title}</h1>
         <div class="poem-body">
             {content}
@@ -176,9 +173,6 @@ POEM_TEMPLATE = """
         <p class="artist-name">{artist_name}</p>
         <pre class="date-block">{date}</pre>
     </main>
-    <footer>
-        <p>© 2025 {author_name}</p>
-    </footer>
 </body>
 </html>
 """
@@ -299,4 +293,5 @@ def build_site():
 
 if __name__ == "__main__":
     build_site()
+
 
