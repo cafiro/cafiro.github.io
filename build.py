@@ -2,17 +2,16 @@ import os
 import markdown2
 import yaml
 import re
-from html import unescape
-
-#test
+from html import unescape, escape
 
 # --- Configuration ---
 POEMS_DIR = '_poems'
-OUTPUT_DIR = 'public'
+OUTPUT_DIR = 'docs'  # GitHub Pages can publish from /docs on the default branch
 SITE_TITLE = "The Collective Archive Of cafiro"
 AUTHOR_NAME = "cafiro"
 ARTIST_NAME = "/cafiro/"
 POEMS_PER_PAGE = 5
+
 
 def generate_preview(poem_md_text, line_limit=6):
     lines = poem_md_text.strip().split('\n')
@@ -23,13 +22,16 @@ def generate_preview(poem_md_text, line_limit=6):
         preview_html += '<br><span class="ellipsis">...</span>'
     return preview_html
 
+
 def get_sortable_date(date_string):
     match = re.search(r'\d{4}-\d{2}-\d{2}', str(date_string))
     return match.group(0) if match else '1970-01-01'
 
-def strip_html_tags(html):
-    text = re.sub('<[^<]+?>', '', html)
+
+def strip_html_tags(html_text):
+    text = re.sub('<[^<]+?>', '', html_text)
     return unescape(text).strip()
+
 
 # --- HTML Templates ---
 INDEX_TEMPLATE = """
@@ -47,6 +49,10 @@ INDEX_TEMPLATE = """
         .search-sort-bar {{ display: flex; gap: 1em; margin-bottom: 2em; }}
         .search-input {{ flex: 1; padding: 0.5em; font-size: 1em; }}
         .sort-select {{ padding: 0.5em; font-size: 1em; }}
+        .pagination-links {{ display:flex; gap: .5rem; flex-wrap: wrap; justify-content:center; margin: 2rem 0; }}
+        .pagination-links a, .pagination-links span {{ padding: .4rem .6rem; border: 1px solid #ccc; border-radius: 6px; text-decoration: none; }}
+        .pagination-links .current {{ font-weight: 700; background: #f5f5f5; }}
+        .pagination-links .disabled {{ opacity: .5; cursor: not-allowed; }}
     </style>
 </head>
 <body>
@@ -61,9 +67,12 @@ INDEX_TEMPLATE = """
                 <option value="asc">Date: Oldest First</option>
             </select>
         </div>
+
         <ul id="poemList" class="poem-list">
             {poem_links}
         </ul>
+
+        {pagination_links}
     </main>
     <footer>
         <p>© 2025 {author_name}</p>
@@ -128,22 +137,22 @@ POEM_TEMPLATE = """
 </html>
 """
 
+
 def generate_pagination_links(current_page, num_pages):
     """Generates HTML for pagination links."""
-    # Don't show pagination if there's only one page
     if num_pages <= 1:
         return ""
 
     links = '<div class="pagination-links">'
 
-    # Previous link
+    # Previous
     if current_page > 0:
         prev_page_url = 'index.html' if current_page == 1 else f'page{current_page}.html'
         links += f'<a href="{prev_page_url}" class="prev-next">« Previous</a>'
     else:
         links += '<span class="prev-next disabled">« Previous</span>'
 
-    # Page number links
+    # Page numbers
     for i in range(num_pages):
         page_url = 'index.html' if i == 0 else f'page{i + 1}.html'
         if i == current_page:
@@ -151,7 +160,7 @@ def generate_pagination_links(current_page, num_pages):
         else:
             links += f'<a href="{page_url}" class="page-number">{i + 1}</a>'
 
-    # Next link
+    # Next
     if current_page < num_pages - 1:
         next_page_url = f'page{current_page + 2}.html'
         links += f'<a href="{next_page_url}" class="prev-next">Next »</a>'
@@ -167,28 +176,34 @@ def build_site():
     print("Starting site build...")
     poems_data = []
 
-    if not os.path.exists(OUTPUT_DIR):
-        os.makedirs(OUTPUT_DIR)
+    os.makedirs(OUTPUT_DIR, exist_ok=True)
 
+    # Collect poems
     for filename in os.listdir(POEMS_DIR):
-        if filename.endswith('.md'):
-            filepath = os.path.join(POEMS_DIR, filename)
-            with open(filepath, 'r', encoding='utf-8') as f:
-                content = f.read()
-                parts = content.split('---')
-                if len(parts) >= 3:
-                    metadata = yaml.safe_load(parts[1])
-                    poem_md = '---'.join(parts[2:]).strip()
-                    poem_html = markdown2.markdown(poem_md, extras=["break-on-newline"])
-                    metadata['full_content'] = poem_html
-                    metadata['preview_content'] = generate_preview(poem_md)
-                    metadata['filename'] = filename.replace('.md', '.html')
-                    metadata['sort_date'] = get_sortable_date(metadata.get('date', ''))
-                    poems_data.append(metadata)
+        if not filename.endswith('.md'):
+            continue
+        filepath = os.path.join(POEMS_DIR, filename)
+        with open(filepath, 'r', encoding='utf-8') as f:
+            content = f.read()
+        parts = content.split('---')
+        if len(parts) < 3:
+            continue  # skip files without frontmatter
 
+        metadata = yaml.safe_load(parts[1]) or {}
+        poem_md = '---'.join(parts[2:]).strip()
+        poem_html = markdown2.markdown(poem_md, extras=["break-on-newline"])
+
+        metadata['full_content'] = poem_html
+        metadata['preview_content'] = generate_preview(poem_md)
+        metadata['title'] = metadata.get('title', 'Untitled')
+        metadata['filename'] = filename.replace('.md', '.html')
+        metadata['sort_date'] = get_sortable_date(metadata.get('date', ''))
+        poems_data.append(metadata)
+
+    # Sort newest first
     poems_data.sort(key=lambda p: p['sort_date'], reverse=True)
 
-    # Build individual poem pages
+    # Build poem pages
     for poem in poems_data:
         page_content = POEM_TEMPLATE.format(
             title=poem.get('title', 'Untitled'),
@@ -202,7 +217,7 @@ def build_site():
             f.write(page_content)
         print(f"  - Built page for: {poem.get('title', 'Untitled')}")
 
-    # Build paginated index pages
+    # Paginated index pages
     num_pages = (len(poems_data) + POEMS_PER_PAGE - 1) // POEMS_PER_PAGE
     for page_num in range(num_pages):
         start_index = page_num * POEMS_PER_PAGE
@@ -211,12 +226,17 @@ def build_site():
 
         poem_links_html = ""
         for poem in page_poems:
-            clean_text = strip_html_tags(poem['full_content']).replace('"', "'")
+            clean_text = strip_html_tags(poem['full_content'])
+            # escape for safe embedding in data-* attributes
+            data_title = escape(poem['title'], quote=True)
+            data_content = escape(clean_text, quote=True)
+            data_date = escape(poem['sort_date'], quote=True)
+
             poem_links_html += f"""
-        <li class=\"poem-card\" data-title=\"{poem['title']}\" data-content=\"{clean_text}\" data-date=\"{poem['sort_date']}\">
-            <h2 class=\"index-poem-title\"><a href=\"{poem['filename']}\">{poem['title']}</a></h2>
-            <div class=\"poem-preview\">{poem['preview_content']}</div>
-            <a href=\"{poem['filename']}\" class=\"read-more\">Read more →</a>
+        <li class="poem-card" data-title="{data_title}" data-content="{data_content}" data-date="{data_date}">
+            <h2 class="index-poem-title"><a href="{poem['filename']}">{poem['title']}</a></h2>
+            <div class="poem-preview">{poem['preview_content']}</div>
+            <a href="{poem['filename']}" class="read-more">Read more →</a>
         </li>
         """
 
@@ -229,20 +249,20 @@ def build_site():
             pagination_links=pagination_html
         )
 
-        if page_num == 0:
-            index_filename = 'index.html'
-        else:
-            index_filename = f'page{page_num + 1}.html'
-
+        index_filename = 'index.html' if page_num == 0 else f'page{page_num + 1}.html'
         with open(os.path.join(OUTPUT_DIR, index_filename), 'w', encoding='utf-8') as f:
             f.write(index_content)
         print(f"  - Built index page: {index_filename}")
 
+    # Copy style.css (optional asset copy)
     if os.path.exists('style.css'):
-        os.system(f'cp style.css {os.path.join(OUTPUT_DIR, "style.css")}')
+        # Use Python copy to be cross-platform
+        import shutil
+        shutil.copyfile('style.css', os.path.join(OUTPUT_DIR, 'style.css'))
         print("  - Copied style.css")
 
     print("Site build complete!")
+
 
 if __name__ == '__main__':
     build_site()
