@@ -1,0 +1,135 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Collective Archive Of cafiro</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Lora:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        .search-sort-bar { display: flex; gap: 1em; margin-bottom: 2em; }
+        .search-input { flex: 1; padding: 0.5em; font-size: 1em; }
+        .sort-select { padding: 0.5em; font-size: 1em; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>The Collective Archive Of cafiro</h1>
+    </header>
+    <main>
+        <div class="search-sort-bar">
+            <input type="text" id="searchInput" class="search-input" placeholder="Search by name, content, or date...">
+            <select id="sortSelect" class="sort-select">
+                <option value="desc">Date: Newest First</option>
+                <option value="asc">Date: Oldest First</option>
+            </select>
+        </div>
+        <ul id="poemList" class="poem-list">
+            
+        <li class="poem-card" data-title="a poem about a radioactive duck" data-content="there once was a duck,
+whose nickname was sneaky snuck.
+on the far lands went snuck,
+to see all about the bluff.
+
+suddenly he sees a corn,
+and quietly he starts to mourn.
+
+come one bruv, breath,
+it won't take a part of me,
+it's not what you need,
+you're not that mean.
+
+yummy,
+says snuck.
+it tastes just like a gummy,
+oh, yes, I am in luck.
+
+soon he passes out,
+and ka-boom explodes Chernobyl loud.
+
+he wakes up,
+to see hes outlived the exploding
+nut.
+
+and from now on,
+says the law,
+sneaky snuck,
+will be know as the radioactive duck." data-date="2022-06-17">
+            <h2 class="index-poem-title"><a href="a poem about a radioactive duck.html">a poem about a radioactive duck</a></h2>
+            <div class="poem-preview"><p>there once was a duck,<br />
+whose nickname was sneaky snuck.<br />
+on the far lands went snuck,<br />
+to see all about the bluff.</p>
+
+<p>suddenly he sees a corn,</p>
+<br><span class="ellipsis">...</span></div>
+            <a href="a poem about a radioactive duck.html" class="read-more">Read more →</a>
+        </li>
+        
+        <li class="poem-card" data-title="Mārcis" data-content="Reiz dzīvoja garais Mārcis,
+kuram ļoti patika cālis.
+Viņš stundām sēdēja solā,
+visu laiku esot omā!
+
+Reiz Mārcītis uz mājām gāja,
+tikai, lai redzētu, ka viņam māja.
+Un atnācis viņš mājās raudāja,
+jo kāds viņa priekšā dancāja.
+
+Un vēlāk, kad mamma nāca,
+tad Mārcis teica, viņš draugus māca.
+Un vakarā, kad slinkums nāca,
+tad Mārcis teica: “Ej uz kāta!”
+
+Reiz Mārcim teica, dzeju raksti,
+un Mārcis teica, ko tu baksti?
+Un tad kad, Tu šo lasi,
+Es interesējos: “Vai iedosi grasi?”" data-date="2020-01-01">
+            <h2 class="index-poem-title"><a href="Mārcis.html">Mārcis</a></h2>
+            <div class="poem-preview"><p>Reiz dzīvoja garais Mārcis,<br />
+kuram ļoti patika cālis.<br />
+Viņš stundām sēdēja solā,<br />
+visu laiku esot omā!</p>
+
+<p>Reiz Mārcītis uz mājām gāja,</p>
+<br><span class="ellipsis">...</span></div>
+            <a href="Mārcis.html" class="read-more">Read more →</a>
+        </li>
+        
+        </ul>
+    </main>
+    <footer>
+        <p>© 2025 cafiro</p>
+    </footer>
+    <script>
+    const searchInput = document.getElementById('searchInput');
+    const sortSelect = document.getElementById('sortSelect');
+    const poemList = document.getElementById('poemList');
+    let poems = Array.from(poemList.children);
+
+    function filterAndSort() {
+        const query = searchInput.value.toLowerCase();
+        const sortOrder = sortSelect.value;
+        let filtered = poems.filter(li => {
+            const title = li.getAttribute('data-title').toLowerCase();
+            const content = li.getAttribute('data-content').toLowerCase();
+            const date = li.getAttribute('data-date');
+            return title.includes(query) || content.includes(query) || date.includes(query);
+        });
+        filtered.sort((a, b) => {
+            const dateA = a.getAttribute('data-date');
+            const dateB = b.getAttribute('data-date');
+            return sortOrder === 'asc' ? dateA.localeCompare(dateB) : dateB.localeCompare(dateA);
+        });
+        poemList.innerHTML = '';
+        filtered.forEach(li => poemList.appendChild(li));
+    }
+
+    searchInput.addEventListener('input', filterAndSort);
+    sortSelect.addEventListener('change', filterAndSort);
+    </script>
+</body>
+</html>

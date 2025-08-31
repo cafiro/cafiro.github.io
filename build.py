@@ -2,6 +2,7 @@ import os
 import markdown2
 import yaml
 import re
+import json
 from html import unescape
 
 # --- Configuration ---
@@ -10,6 +11,12 @@ OUTPUT_DIR = 'public'
 SITE_TITLE = "The Collective Archive Of cafiro"
 AUTHOR_NAME = "cafiro"
 ARTIST_NAME = "/cafiro/"
+POEMS_PER_PAGE = 5
+
+# Function to sanitize the title to be used in URLs
+def sanitize_title(title):
+    """Sanitize titles for URL compatibility"""
+    return re.sub(r'[^a-zA-Z0-9\-]', '_', title).lower()
 
 def generate_preview(poem_md_text, line_limit=6):
     lines = poem_md_text.strip().split('\n')
@@ -100,35 +107,97 @@ POEM_TEMPLATE = """
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{title} | {site_title}</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Lora:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{title}</title>
+  <style>
+    body {{
+      margin: 0;
+      padding: 2rem;
+      font-family: 'Lora', serif;
+      background-color: #fbfaf8; /* same background as archive */
+      color: #222;
+    }}
+
+    a.back-link {{
+      position: fixed;
+      top: 1rem;
+      left: 1rem;
+      text-decoration: none;
+      font-size: 0.9rem;
+      color: #555;
+    }}
+
+    .poem-container {{
+      max-width: 700px;
+      margin: 5rem auto;
+    }}
+
+    h1.poem-title {{
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 1.5rem;
+      text-align: left; /* left aligned now */
+    }}
+
+    .poem-content {{
+      font-size: 1rem;
+      line-height: 1.4; /* tighter line spacing */
+      white-space: pre-line; /* keeps poem line breaks */
+      text-align: left; /* left aligned now */
+    }}
+  </style>
 </head>
 <body>
-    <main class="poem-container">
-        <a href="index.html" class="back-link">← Back to The Archive</a>
-        <h1 class="poem-title">{title}</h1>
-        <div class="poem-body">
-            {content}
-        </div>
-        <p class="artist-name">{artist_name}</p>
-        <pre class="date-block">{date}</pre>
-    </main>
-    <footer>
-        <p>© 2025 {author_name}</p>
-    </footer>
+  <a href="../index.html" class="back-link">← Back to The Archive</a>
+
+  <div class="poem-container">
+    <h1 class="poem-title">{title}</h1>
+    <div class="poem-content">{content}</div>
+  </div>
 </body>
 </html>
 """
+
+def generate_pagination_links(current_page, num_pages):
+    """Generates HTML for pagination links."""
+    # Don't show pagination if there's only one page
+    if num_pages <= 1:
+        return ""
+
+    links = '<div class="pagination-links">'
+
+    # Previous link
+    if current_page > 0:
+        prev_page_url = 'index.html' if current_page == 1 else f'page{current_page}.html'
+        links += f'<a href="{prev_page_url}" class="prev-next">« Previous</a>'
+    else:
+        links += '<span class="prev-next disabled">« Previous</span>'
+
+    # Page number links
+    for i in range(num_pages):
+        page_url = 'index.html' if i == 0 else f'page{i + 1}.html'
+        if i == current_page:
+            links += f'<span class="page-number current">{i + 1}</span>'
+        else:
+            links += f'<a href="{page_url}" class="page-number">{i + 1}</a>'
+
+    # Next link
+    if current_page < num_pages - 1:
+        next_page_url = f'page{current_page + 2}.html'
+        links += f'<a href="{next_page_url}" class="prev-next">Next »</a>'
+    else:
+        links += '<span class="prev-next disabled">Next »</span>'
+
+    links += '</div>'
+    return links
+
 
 # --- Build Logic ---
 def build_site():
     print("Starting site build...")
     poems_data = []
+    poems_index = []
 
     if not os.path.exists(OUTPUT_DIR):
         os.makedirs(OUTPUT_DIR)
@@ -145,12 +214,31 @@ def build_site():
                     poem_html = markdown2.markdown(poem_md, extras=["break-on-newline"])
                     metadata['full_content'] = poem_html
                     metadata['preview_content'] = generate_preview(poem_md)
-                    metadata['filename'] = filename.replace('.md', '.html')
-                    metadata['sort_date'] = get_sortable_date(metadata.get('date', ''))
+
+                    # Sanitize the title to be URL-safe
+                    sanitized_title = sanitize_title(metadata.get('title', 'Untitled'))
+
+                    metadata['filename'] = f"{sanitized_title}.html"  # Make sure filename is URL-safe
+                    
+                    # Ensure 'date' is a string for serialization
+                    date_str = get_sortable_date(metadata.get('date', ''))
+                    metadata['sort_date'] = date_str
                     poems_data.append(metadata)
+                    
+                    poems_index.append({
+                        'title': metadata.get('title', 'Untitled'),
+                        'preview': metadata['preview_content'],
+                        'date': date_str,  # Store date as string
+                        'filename': metadata['filename']
+                    })
 
     poems_data.sort(key=lambda p: p['sort_date'], reverse=True)
 
+    # Write the global search index to a JSON file
+    with open(os.path.join(OUTPUT_DIR, 'poem-index.json'), 'w', encoding='utf-8') as f:
+        json.dump(poems_index, f, ensure_ascii=False, indent=4)
+
+    # Build individual poem pages
     for poem in poems_data:
         page_content = POEM_TEMPLATE.format(
             title=poem.get('title', 'Untitled'),
@@ -160,35 +248,32 @@ def build_site():
             site_title=SITE_TITLE,
             author_name=AUTHOR_NAME
         )
+
         with open(os.path.join(OUTPUT_DIR, poem['filename']), 'w', encoding='utf-8') as f:
             f.write(page_content)
-        print(f"  - Built page for: {poem.get('title', 'Untitled')}")
 
-    poem_links_html = ""
-    for poem in poems_data:
-        clean_text = strip_html_tags(poem['full_content']).replace('"', "'")
-        poem_links_html += f"""
-        <li class="poem-card" data-title="{poem['title']}" data-content="{clean_text}" data-date="{poem['sort_date']}">
-            <h2 class="index-poem-title"><a href="{poem['filename']}">{poem['title']}</a></h2>
-            <div class="poem-preview">{poem['preview_content']}</div>
-            <a href="{poem['filename']}" class="read-more">Read more →</a>
+    # Build the index page
+    poem_links = ''
+    for poem in poems_index:
+        poem_links += f"""
+        <li data-title="{poem['title']}" data-content="{strip_html_tags(poem['preview'])}" data-date="{poem['date']}">
+            <a href="{poem['filename']}">{poem['title']}</a> <small>{poem['date']}</small>
         </li>
         """
 
     index_content = INDEX_TEMPLATE.format(
         site_title=SITE_TITLE,
         author_name=AUTHOR_NAME,
-        poem_links=poem_links_html
+        poem_links=poem_links
     )
+
     with open(os.path.join(OUTPUT_DIR, 'index.html'), 'w', encoding='utf-8') as f:
         f.write(index_content)
-    print("  - Built index.html")
-
-    if os.path.exists('style.css'):
-        os.system(f'cp style.css {os.path.join(OUTPUT_DIR, "style.css")}')
-        print("  - Copied style.css")
 
     print("Site build complete!")
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     build_site()
+
+

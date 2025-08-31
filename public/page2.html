@@ -1,0 +1,357 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Collective Archive Of cafiro</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Lora:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        .search-sort-bar { display: flex; gap: 1em; margin-bottom: 2em; }
+        .search-input { flex: 1; padding: 0.5em; font-size: 1em; }
+        .sort-select { padding: 0.5em; font-size: 1em; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>The Collective Archive Of cafiro</h1>
+    </header>
+    <main>
+        <div class="search-sort-bar">
+            <input type="text" id="searchInput" class="search-input" placeholder="Search by name, content, or date...">
+            <select id="sortSelect" class="sort-select">
+                <option value="desc">Date: Newest First</option>
+                <option value="asc">Date: Oldest First</option>
+            </select>
+        </div>
+        <ul id="poemList" class="poem-list">
+            
+        <li class="poem-card" data-title="būtība" data-content="rodas reiz jautājums
+vai cilvēks ir tā rīcība
+vai rīcība ir zaudējums
+vai tā ir tava būtība
+
+citu domās, esi velns
+manuprāt tikai klauns
+iekšēji tu dziļi melns
+tev pašam vai kauns
+
+viena kļūme bedri rok
+tavu vērti projām met
+tagad laiks - jānosmok
+visi vienmēr tikai pret
+
+vientulīgā apātijā
+skumji krāmē koferi
+raudu upē bezgalīgā
+meklē glupu šoferi
+
+šoferi tu neatrodi
+koferi tu nekrāmē
+apkārtni tu nesaproti
+tu asariņu neslāpē
+
+spogulī tu sevi vēro
+bet tur pretī skatās svešs
+kas par velnu, kas par klaunu
+šis bezjēgas, tukšais ķermenis
+
+tukšums tavā krūšu kurvī
+plešas plašāk, dziļāk, audz
+katra doma asa kā nazis
+katra elpa tevi žņaudz
+
+klusums ausīs skaļāk kliedz
+nekā pūlis ielās trauc
+tu jau sen vairs neko nedod
+tikai iekšēji sev kauc
+
+un tas jautājums, kas sākās,
+paliek trūdam ar smagu krustu.
+tu pats esi atbilde vāja,
+kas bez skaņas brūk ar pūstu." data-date="2025-06-07">
+            <h2 class="index-poem-title"><a href="būtība.html">būtība</a></h2>
+            <div class="poem-preview"><p>rodas reiz jautājums<br />
+vai cilvēks ir tā rīcība<br />
+vai rīcība ir zaudējums<br />
+vai tā ir tava būtība</p>
+
+<p>citu domās, esi velns  </p>
+<br><span class="ellipsis">...</span></div>
+            <a href="būtība.html" class="read-more">Read more →</a>
+        </li>
+        
+        <li class="poem-card" data-title="ieraudzīju" data-content="ieraudzīju kamieli,
+lielu, brašu kamieli.
+kamielis dodas tipu-tapu,
+lielā mīla darīt ņigu-ņegu.
+
+ieraudzīju zebriņu,
+tievu, brašu zebriņu.
+zebriņš košļā ņam-ņam
+zaļu lauku man-man.
+
+ieraudzīju zirdziņu,
+garu, brašu zirdziņu.
+zirdziņš saka i-ā-ā,
+garām traucas ki-ā-ā.
+
+ieraudzījis zebriņu,
+tievu, brašu zebriņu,
+kamielis lēkā hop-hop,
+zebriņš saka stop-stop.
+
+uzrunājis kamieli,
+lielu, brašu kamieli,
+zebriņš joņo rik-rak,
+zirdziņam saka tak-tak.
+
+uzklausījis zebriņu,
+tievu, brašu zebriņu,
+zirdziņš dusmās puk-puk,
+kamielītim babaduh.
+
+piecīnījis kamielīti,
+lielu, brašu kamielīti,
+zirdziņš priekā īk-īk,
+zebriņš dusmās nīk-nīk.
+
+ignorējis zirdziņu,
+garu, brašu zirdziņu,
+zebriņš rikšo rik-rik,
+uz mājas pusi tikt-tikt." data-date="2025-06-06">
+            <h2 class="index-poem-title"><a href="ieraudzīju.html">ieraudzīju</a></h2>
+            <div class="poem-preview"><p>ieraudzīju kamieli,<br />
+lielu, brašu kamieli.<br />
+kamielis dodas tipu-tapu,<br />
+lielā mīla darīt ņigu-ņegu.</p>
+
+<p>ieraudzīju zebriņu,  </p>
+<br><span class="ellipsis">...</span></div>
+            <a href="ieraudzīju.html" class="read-more">Read more →</a>
+        </li>
+        
+        <li class="poem-card" data-title="fantāzija" data-content="ciets kā miets
+mans acu siets
+maigs kā rasa
+ziņkārību kasa
+
+turu, turu, es turu
+beigās nesaturu
+kļūst nu mīksts
+sirdī esmu brīvs
+
+fantāzijas es jūtu
+nepareizs es kļūstu
+baudu nes man tas
+jūtas rodas karstas
+
+mīlu, mīlu, es alkstu
+jūtu jezgu es valdu
+nesasniedzu baudu
+meklēju es draugu
+
+draugu es atrodu
+savu miesu atdošu
+baudu es kārošu
+dvēseli pārdošu
+
+nožēlu dziļu jutīšu
+atalgojumu prasīšu
+domas visur dzenāšu
+es ilgošanos pārnākšu
+
+nesasniegšu ilgi cerēto
+uzmetīšu lielo lūpu baigo
+dusmas iekšēji izpaudīšu
+gribu saņemt drusku mīlu
+
+izmisumā visur meklēšu
+no visas sirds es cerēšu
+atrast maigo mīlas sajūtu
+kaut vien es tikai dabūtu
+
+esmu padevies piedzīvot
+nemužam to neatkārtot
+tūlītēju pēkšņo baudu gūt
+tikai iedomāties to varbūt
+
+dvēselē asi aso pieredzi
+izpelnot kāroto interesi
+sasniedzis vēlēto baudu
+fermentēto ūdeni rauju
+
+lai aizmirstu šo atmiņu
+meklēju es ko maģisku
+dusmu ūdens mani tur
+te visus aicinu es šurp
+
+lai justu slavu, baudu
+pieredzi lai gūtu jaunu
+aizmirsu katru ikdienu
+un lūgtos tikai dievu
+
+nenožēlot paveikto
+aizmirst to pareizo
+baudīt dzīvi visur
+citādi tiks nekur" data-date="2025-04-05">
+            <h2 class="index-poem-title"><a href="fantāzija.html">fantāzija</a></h2>
+            <div class="poem-preview"><p>ciets kā miets<br />
+mans acu siets<br />
+maigs kā rasa<br />
+ziņkārību kasa</p>
+
+<p>turu, turu, es turu</p>
+<br><span class="ellipsis">...</span></div>
+            <a href="fantāzija.html" class="read-more">Read more →</a>
+        </li>
+        
+        <li class="poem-card" data-title="dzejolītis, par ārkārtīgi labu laika pavadīšanu" data-content="alejāsi'
+būšu, bušu
+klibs gar zemi
+staigādam'
+2x
+
+došu roku
+pirmai dāmai
+kas man acē
+trāpīsies
+2x
+
+vai cik labi
+jūtu, jūtu
+pazaudēto
+vakariņ'
+2x
+
+man bij' labi
+klētiņāi'
+gulēt plikam
+lādītē
+2x
+
+cik bija laba
+rīta rasa
+kas man drēbi
+mitrināj'
+2x
+
+vai cik slikta
+diena, diena
+kas pēc alus
+parādās
+2x
+
+vēl sliktākā
+dieniņāi'
+kur nav alus
+rociņā
+2x
+
+laiks nu ieti
+čuči, čuči
+saldi miegā
+blusu ķert
+2x
+
+un no rīta
+nezināti
+ko es vakar
+sadarīj'
+2x" data-date="2025-04-04">
+            <h2 class="index-poem-title"><a href="dzejolītis par ārkārtīgi labu laika pavadīšanu.html">dzejolītis, par ārkārtīgi labu laika pavadīšanu</a></h2>
+            <div class="poem-preview"><p>alejāsi'<br />
+būšu, bušu<br />
+klibs gar zemi<br />
+staigādam'<br />
+2x</p>
+<br><span class="ellipsis">...</span></div>
+            <a href="dzejolītis par ārkārtīgi labu laika pavadīšanu.html" class="read-more">Read more →</a>
+        </li>
+        
+        <li class="poem-card" data-title="ceļojums cerībā" data-content="ilgstošā cerībā
+tumšajā vakarā
+pilnīgā neziņā
+ielūko sirsniņā
+
+attopies klusumā
+tuksneša tumsoņā
+ieplūsti miedziņā
+vakara dreboņā
+
+krīti! krīti! krīti!
+slīksti! slīksti! slīksti!
+
+uzraujies nomodā
+pilnīgā slapjumā
+varenā izbrīnā
+lūkojies atspulgā
+
+atbilde meklētā
+domīgā skatienā
+dvēseles atspulgā
+atbilde nesniegtā
+
+čīksti! čīksti! čīksti!
+nīsti! nīsti! nīsti!
+
+apziņas zudumā
+lūkojies atmiņā
+spēkojies cīniņā
+iekšējā konfliktā
+
+ilgstošā mocībā
+iejūties klusībā
+pēdējā cerībā
+iekrīti tumsībā
+
+ilgi! ilgi! ilgi!
+mirsti! mirsti! mirsti!" data-date="2025-03-30">
+            <h2 class="index-poem-title"><a href="ceļojums cerībā.html">ceļojums cerībā</a></h2>
+            <div class="poem-preview"><p>ilgstošā cerībā<br />
+tumšajā vakarā<br />
+pilnīgā neziņā<br />
+ielūko sirsniņā</p>
+
+<p>attopies klusumā</p>
+<br><span class="ellipsis">...</span></div>
+            <a href="ceļojums cerībā.html" class="read-more">Read more →</a>
+        </li>
+        
+        </ul>
+    </main>
+    <footer>
+        <p>© 2025 cafiro</p>
+    </footer>
+    <script>
+    const searchInput = document.getElementById('searchInput');
+    const sortSelect = document.getElementById('sortSelect');
+    const poemList = document.getElementById('poemList');
+    let poems = Array.from(poemList.children);
+
+    function filterAndSort() {
+        const query = searchInput.value.toLowerCase();
+        const sortOrder = sortSelect.value;
+        let filtered = poems.filter(li => {
+            const title = li.getAttribute('data-title').toLowerCase();
+            const content = li.getAttribute('data-content').toLowerCase();
+            const date = li.getAttribute('data-date');
+            return title.includes(query) || content.includes(query) || date.includes(query);
+        });
+        filtered.sort((a, b) => {
+            const dateA = a.getAttribute('data-date');
+            const dateB = b.getAttribute('data-date');
+            return sortOrder === 'asc' ? dateA.localeCompare(dateB) : dateB.localeCompare(dateA);
+        });
+        poemList.innerHTML = '';
+        filtered.forEach(li => poemList.appendChild(li));
+    }
+
+    searchInput.addEventListener('input', filterAndSort);
+    sortSelect.addEventListener('change', filterAndSort);
+    </script>
+</body>
+</html>
